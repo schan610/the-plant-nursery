@@ -1,0 +1,25 @@
+@use "./variables" as *;
+
+@mixin hover-bottom() {
+  &:hover {
+    cursor: pointer;
+  }
+  &:after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 1.8px;
+    width: 0px;
+    transition: all $speed-normal ease;
+  }
+  &:hover:after {
+    width: 100%;
+    background-color: $color-text--grey;
+  }
+}
+
+@mixin hover-pointer() {
+  &:hover {
+    cursor: pointer;
+  }
+}

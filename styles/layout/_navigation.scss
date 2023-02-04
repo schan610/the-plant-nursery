@@ -1,0 +1,63 @@
+@use "../abstracts" as *;
+
+.navbar {
+  height: 7.5rem;
+  padding-top: 2.5rem;
+  border-bottom: 1px solid #dee2e6;
+
+  // Main font style
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 180rem;
+    padding: 0 5rem;
+  }
+
+  // MAIN NAVIGATION LIST
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 2.4rem;
+    min-width: 15rem;
+  }
+
+  &__item {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    // animate hovering from mixin
+    @include hover-bottom;
+  }
+
+  // LOGO AND CART
+
+  &__logo {
+    font-size: 1.8rem;
+    font-family: $font-family--headings;
+    letter-spacing: 3px;
+    color: $color-primary--dark;
+
+    // Center logo
+    width: 100%;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    @include hover-pointer;
+  }
+
+  &__cart {
+    min-width: 15rem;
+    text-align: center;
+    @include hover-pointer;
+  }
+}
