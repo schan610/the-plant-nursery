@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+
+.dropdown {
+  position: absolute;
+  padding: 3rem 0;
+  min-height: 24rem;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  z-index: 5;
+  transition: all 0.3s ease-in;
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $color-text--lightgrey;
+  }
+  &__list:first-child {
+    margin-right: 8rem;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    letter-spacing: 0.4px;
+    font-weight: 400;
+    font-family: $font-family--headings;
+    color: $color-primary--dark;
+    @include hover-bottom($color-primary--dark);
+  }
+
+  @include animate-fade-in;
+}

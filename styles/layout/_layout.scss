@@ -1,0 +1,76 @@
+@use "../abstracts" as *;
+
+.section-container {
+  @include container-max-width;
+}
+
+.btn {
+  font-size: 1.6rem;
+  text-align: center;
+  font-family: $font-family;
+  color: #fff;
+  padding: 1rem 2.4rem;
+  display: inline-block;
+  border: none;
+}
+
+.btn--primary {
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary--dark;
+    transition: all 0.2s;
+  }
+}
+.btn--secondary {
+  background-color: $color-secondary;
+  transition: all 0.2s;
+  &:hover {
+    background-color: $color-secondary--dark;
+  }
+}
+
+.variations {
+  &__current {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $color-text--lightgrey;
+    margin-top: 0.8rem;
+  }
+
+  &__list {
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px;
+  }
+
+  &__color {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    &--active {
+      outline: solid 2px $color-primary--dark;
+      outline-offset: 1.8px;
+    }
+    &--calmblue {
+      background-color: #add8e6;
+    }
+    &--whitesmoke {
+      background-color: #f1f1f1;
+    }
+    &--charcoal {
+      background-color: #5c5c5c;
+    }
+    &--honeydew {
+      background-color: #cfded2;
+    }
+    &--ashgrey {
+      background-color: #cad2c5;
+    }
+  }
+}

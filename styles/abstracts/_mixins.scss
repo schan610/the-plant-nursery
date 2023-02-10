@@ -1,20 +1,22 @@
 @use "./variables" as *;
 
-@mixin hover-bottom() {
+@mixin hover-bottom($color) {
+  width: fit-content;
   &:hover {
     cursor: pointer;
   }
   &:after {
     content: "";
     display: block;
+
     margin: auto;
-    height: 1.8px;
+    height: 1px;
     width: 0px;
     transition: all $speed-normal ease;
   }
   &:hover:after {
     width: 100%;
-    background-color: $color-text--grey;
+    background-color: $color;
   }
 }
 
@@ -22,4 +24,10 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+@mixin container-max-width() {
+  max-width: $max-width--wide;
+  padding: 0 5rem;
+  margin: 0 auto;
 }

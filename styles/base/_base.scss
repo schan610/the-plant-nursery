@@ -6,6 +6,9 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  text-decoration: none;
+  list-style: none;
+  color: inherit;
 }
 
 html {
@@ -16,6 +19,7 @@ html {
 body {
   font-family: $font-family;
   color: $color-text--grey;
+  background-color: #fff;
   font-weight: 300;
   line-height: 1.6;
 }

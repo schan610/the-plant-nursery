@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+
+.heading-primary {
+  font-size: 4.4rem;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+  color: $color-primary--dark;
+  font-family: $font-family--headings;
+}
+
+.heading-secondary {
+  font-size: 3.2rem;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+  font-family: $font-family--headings;
+  color: $color-primary--dark;
+}
+
+.heading-tertiary {
+  font-size: 1.8rem;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+  font-family: $font-family--headings;
+  color: $color-primary--dark;
+}
+
+.text-primary {
+  font-size: 2rem;
+  font-family: $font-family--headings;
+  line-height: 4rem;
+}

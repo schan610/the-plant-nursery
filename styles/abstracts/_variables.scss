@@ -10,11 +10,21 @@ $font-family: "Roboto", sans-serif;
 $font-family--headings: "Merriweather", serif;
 
 // - COLORS
-$color-primary: #087f5b;
-$color-primary--dark: #085f45;
-$color-text--black: #000;
+$color-primary: #729e7b;
+$color-primary--dark: #628869;
+// $color-secondary: #c9bfa6;
+$color-secondary: #c8bea4;
+$color-secondary--dark: #b0a792;
+$color-banner: #f1e8e4;
+$color-banner--grey: #f8f9fa;
+
+$color-text--primary: #212529;
 $color-text--grey: #343a40;
+$color-text--lightgrey: #787f89;
+
+// - RESPONSIVE WIDTH
+
+$max-width--wide: 180rem;
 
 // Transition speeds
-
 $speed-normal: 0.4s;

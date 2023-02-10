@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
 .navbar {
+  position: relative;
   height: 7.5rem;
   padding-top: 2.5rem;
   border-bottom: 1px solid #dee2e6;
@@ -12,47 +13,40 @@
   letter-spacing: 1.2px;
 
   &__container {
+    // CHECK FOR CONTAINER REUSABLITY
     display: flex;
     align-items: center;
-    margin: 0 auto;
-    max-width: 180rem;
-    padding: 0 5rem;
   }
 
   // MAIN NAVIGATION LIST
 
   &__list {
-    list-style: none;
     display: flex;
     gap: 2.4rem;
     min-width: 15rem;
   }
 
   &__item {
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
     // animate hovering from mixin
-    @include hover-bottom;
+    @include hover-bottom($color-text--grey);
   }
 
   // LOGO AND CART
 
-  &__logo {
-    font-size: 1.8rem;
-    font-family: $font-family--headings;
-    letter-spacing: 3px;
-    color: $color-primary--dark;
-
-    // Center logo
+  &__brand {
     width: 100%;
-    display: flex;
-    gap: 0.8rem;
-    justify-content: center;
-    align-items: center;
-    @include hover-pointer;
+    &__logo {
+      width: fit-content;
+      margin: auto;
+      font-size: 1.8rem;
+      font-family: $font-family--headings;
+
+      letter-spacing: 1.5px;
+      color: $color-primary--dark;
+
+      // Center logo
+      @include hover-pointer;
+    }
   }
 
   &__cart {
