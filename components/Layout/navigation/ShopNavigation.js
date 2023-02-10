@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ShopNavigation = () => {
   return (
-    <div className="dropdown__container section-container ">
+    <div key="shopDropdown" className="dropdown__container section-container ">
       <ul className="dropdown__list">
         <h2 className="dropdown__title heading-secondary">
           <Link href={"/shop"}>Shop</Link>

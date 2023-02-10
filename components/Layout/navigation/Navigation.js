@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useReducer } from "react";
+import { AnimatePresence } from "framer-motion";
 import { FaLeaf } from "react-icons/fa";
 import NavDropdown from "../../ui/NavDropdown";
 import ShopNavigation from "./ShopNavigation";
 import AboutNavigation from "./AboutNavigation";
 
-//TODO: Add fade out with framer-motion (AnimationMotion)
+//TODO: Add fade out with framer-motion (AnimatePresence)
 const dropdownReducer = (state, action) => {
   if (action.type === "openShop") {
     return {
@@ -73,21 +74,25 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {dropdownState.shopDropdown && (
-        <NavDropdown
-          style={!dropdownState.shopDropdown && { color: "blue" }}
-          onAnimationEnd={() => {
-            if (!dropdownState.shopDropdown) dispatch("closeAll");
-          }}
-        >
-          <ShopNavigation />
-        </NavDropdown>
-      )}
-      {dropdownState.aboutDropdown && (
-        <NavDropdown>
-          <AboutNavigation />
-        </NavDropdown>
-      )}
+      <AnimatePresence>
+        {dropdownState.shopDropdown && (
+          <NavDropdown
+            style={!dropdownState.shopDropdown && { color: "blue" }}
+            onAnimationEnd={() => {
+              if (!dropdownState.shopDropdown) dispatch("closeAll");
+            }}
+          >
+            <ShopNavigation />
+          </NavDropdown>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {dropdownState.aboutDropdown && (
+          <NavDropdown>
+            <AboutNavigation />
+          </NavDropdown>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

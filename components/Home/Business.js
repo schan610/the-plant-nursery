@@ -26,7 +26,7 @@ const Business = () => {
         </div>
 
         <div className="business__main">
-          <h2 className="heading-secondary business__main__title">
+          <h2 className="heading-tertiary business__main__title">
             A Business Built from Passion
           </h2>
           <p className="text-primary business__main__text">

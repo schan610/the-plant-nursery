@@ -35,6 +35,4 @@
     color: $color-primary--dark;
     @include hover-bottom($color-primary--dark);
   }
-
-  @include animate-fade-in;
 }
