@@ -28,7 +28,7 @@
 
   &__item {
     // animate hovering from mixin
-    @include hover-bottom($color-text--grey);
+    @include hover-bottom($color-text--grey, $speed-heading);
   }
 
   // LOGO AND CART

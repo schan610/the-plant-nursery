@@ -7,20 +7,36 @@ const ShopNavigation = () => {
         <h2 className="dropdown__title heading-secondary">
           <Link href={"/shop"}>Shop</Link>
         </h2>
-        <li className="dropdown__item">Shop All</li>
+        <li className="dropdown__item">
+          <Link href="/shop"> Shop All</Link>
+        </li>
       </ul>
       <ul className="dropdown__list">
         <h2 className="dropdown__title heading-secondary">Plants</h2>
-        <li className="dropdown__item">Pet-friendly</li>
-        <li className="dropdown__item">Low-light houseplants</li>
-        <li className="dropdown__item">Low-maintenance</li>
-        <li className="dropdown__item">View all</li>
+        <li className="dropdown__item">
+          <Link href="/">Pet-friendly</Link>
+        </li>
+        <li className="dropdown__item">
+          <Link href="/">Low-light houseplants</Link>
+        </li>
+        <li className="dropdown__item">
+          <Link href="/">Low-maintenance</Link>
+        </li>
+        <li className="dropdown__item">
+          <Link href="/">View all</Link>
+        </li>
       </ul>
       <ul className="dropdown__list">
-        <h2 className="dropdown__title heading-secondary">Planters</h2>
-        <li className="dropdown__item">Pots</li>
-        <li className="dropdown__item">Plant stands</li>
-        <li className="dropdown__item">View all</li>
+        <h2 className="dropdown__title heading-secondary">Accessories</h2>
+        <li className="dropdown__item">
+          <Link href="/"> Planters</Link>
+        </li>
+        <li className="dropdown__item">
+          <Link href="/">Plant stands</Link>
+        </li>
+        <li className="dropdown__item">
+          <Link href="/">View all</Link>
+        </li>
       </ul>
     </div>
   );

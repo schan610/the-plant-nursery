@@ -1,6 +1,6 @@
 @use "./variables" as *;
 
-@mixin hover-bottom($color) {
+@mixin hover-bottom($color, $speed) {
   width: fit-content;
   &:hover {
     cursor: pointer;
@@ -12,7 +12,7 @@
     margin: auto;
     height: 1px;
     width: 0px;
-    transition: all $speed-normal ease;
+    transition: all $speed ease;
   }
   &:hover:after {
     width: 100%;

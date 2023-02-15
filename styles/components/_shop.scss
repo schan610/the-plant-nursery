@@ -1,0 +1,42 @@
+@use "../abstracts" as *;
+
+.shop {
+  padding-top: 5rem;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  &__main {
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+  }
+  &__sidebar {
+    height: 50rem;
+    width: 25%;
+    border-top: 1px solid $color-secondary;
+    padding-top: 1.2rem;
+
+    h2 {
+      color: $color-text--grey;
+    }
+
+    li {
+      margin-bottom: 1.4rem;
+      font-size: 1.8rem;
+      color: $color-text--grey;
+
+      @include hover-bottom($color-text--grey, $speed-text);
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+  }
+}

@@ -6,7 +6,7 @@ import NavDropdown from "../../ui/NavDropdown";
 import ShopNavigation from "./ShopNavigation";
 import AboutNavigation from "./AboutNavigation";
 
-//TODO: Add fade out with framer-motion (AnimatePresence)
+//TODO:  Might refactor dropdown reducer to a customhook
 const dropdownReducer = (state, action) => {
   if (action.type === "openShop") {
     return {
@@ -53,9 +53,9 @@ const Navigation = () => {
         <div className="navbar__container section-container ">
           <ul className="navbar__list">
             <li className="navbar__item">
-              <a href="#" onMouseEnter={() => openDropdown("openShop")}>
+              <Link href="/shop" onMouseEnter={() => openDropdown("openShop")}>
                 Shop
-              </a>
+              </Link>
             </li>
             <li className="navbar__item">
               <a href="#" onMouseEnter={() => openDropdown("openAbout")}>

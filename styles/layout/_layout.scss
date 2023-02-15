@@ -30,6 +30,36 @@
   }
 }
 
+// RE-USABLE STYLES
+.product-overview {
+  &__img {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    &__title {
+      @include hover-bottom($color-primary--dark, $speed-heading);
+      font-size: 1.6rem;
+    }
+    span {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__options {
+    &__color {
+      width: 3rem;
+    }
+  }
+}
 .variations {
   &__current {
     display: inline-block;
