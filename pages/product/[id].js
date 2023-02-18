@@ -1,9 +1,35 @@
+import ProductDetails from "../../components/Product/ProductDetails";
 import { useRouter } from "next/router";
-const ProductDetails = () => {
-  const router = useRouter();
-
-  console.log(router.query.variant);
-  return <h1>Product Details</h1>;
+const ProductDetailsPage = (props) => {
+  return <ProductDetails product={props.product} />;
 };
 
-export default ProductDetails;
+export async function getStaticPaths() {
+  const response = await fetch("http://localhost:3000/api/products");
+  const allProducts = await response.json();
+
+  const paths = allProducts.map((product) => {
+    return product._id.toString();
+  });
+
+  return {
+    fallback: false,
+    paths: paths.map((pathId) => ({
+      params: { id: pathId },
+    })),
+  };
+}
+export async function getStaticProps(context) {
+  const productId = context.params.id;
+  const response = await fetch(
+    `http://localhost:3000/api/products/${productId}`
+  );
+  const product = await response.json();
+
+  return {
+    props: {
+      product: product,
+    },
+  };
+}
+export default ProductDetailsPage;

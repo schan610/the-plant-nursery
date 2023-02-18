@@ -5,6 +5,7 @@
 }
 
 .btn {
+  cursor: pointer;
   font-size: 1.6rem;
   text-align: center;
   font-family: $font-family;
@@ -60,6 +61,41 @@
     }
   }
 }
+
+.product-features {
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  &__list {
+    font-size: 1.6rem;
+    color: $color-text--grey;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 6px;
+      span {
+        width: 14rem;
+      }
+    }
+
+    li:last-child {
+      margin-bottom: 2rem;
+    }
+
+    &__true {
+      color: $color-primary;
+      font-size: 1.6rem;
+    }
+    &__false {
+      color: #d18588;
+      font-size: 1.6rem;
+    }
+  }
+}
+
 .variations {
   &__current {
     display: inline-block;
@@ -74,7 +110,7 @@
     margin-top: 0.4rem;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     padding: 3px;
   }
 

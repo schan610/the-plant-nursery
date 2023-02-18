@@ -1,7 +1,6 @@
-import Link from "next/link";
-import ProductOverview from "../../components/ui/ProductOverview";
+import ProductOverview from "../ui/ProductOverview";
 
-const ShopAll = (props) => {
+const ShopPlants = (props) => {
   return (
     <section className="shop">
       <div className="shop__container section-container">
@@ -10,18 +9,22 @@ const ShopAll = (props) => {
           <aside className="shop__sidebar">
             <nav>
               <ul>
-                <li className="text-primary">
-                  <Link href="/shop/plants">View Plants</Link>
-                </li>
-                <li className="text-primary">
-                  <Link href="/shop/planters">View Planters</Link>
-                </li>
+                <li className="text-primary">View Plants</li>
+                <li className="text-primary">View Planters</li>
               </ul>
             </nav>
           </aside>
           <div className="shop__products">
             {props.products.map((product) => {
-              return <ProductOverview key={product.id} product={product} />;
+              return (
+                <ProductOverview
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  image={product.image}
+                  price={product.price}
+                />
+              );
             })}
           </div>
         </div>
@@ -30,4 +33,4 @@ const ShopAll = (props) => {
   );
 };
 
-export default ShopAll;
+export default ShopPlants;

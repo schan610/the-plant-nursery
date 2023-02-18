@@ -1,0 +1,70 @@
+@use "../abstracts" as *;
+
+.product {
+  padding-top: 5rem;
+  &__container {
+    display: flex;
+    gap: 10rem;
+  }
+
+  &__img {
+    width: 135rem;
+
+    img {
+      width: 100%;
+    }
+
+    span {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+      color: rgb(79, 79, 244);
+    }
+  }
+
+  &__details {
+    width: 100%;
+    &__heading {
+      border-bottom: 1px solid $color-primary--dark;
+      h1 {
+        color: $color-primary--dark;
+      }
+      span {
+        display: inline-block;
+        margin: 1.2rem 0;
+        font-weight: 500;
+        font-size: 2.2rem;
+      }
+    }
+
+    &__description {
+      margin: 2rem 0;
+      p {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        font-family: $font-family--headings;
+        color: $color-text--grey;
+      }
+    }
+
+    &__actions {
+      margin-top: 2rem;
+      display: flex;
+      align-items: items;
+      gap: 1.6rem;
+      &__quantity {
+        display: flex;
+        align-items: center;
+        gap: 3.4rem;
+        font-size: 2rem;
+        color: $color-text--grey;
+
+        svg {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
