@@ -4,7 +4,7 @@ const ShopPlants = (props) => {
   return (
     <section className="shop">
       <div className="shop__container section-container">
-        <h1 className="heading-secondary">Shop All Products</h1>
+        <h1 className="heading-secondary">Shop Plants</h1>
         <div className="shop__main">
           <aside className="shop__sidebar">
             <nav>
@@ -16,15 +16,7 @@ const ShopPlants = (props) => {
           </aside>
           <div className="shop__products">
             {props.products.map((product) => {
-              return (
-                <ProductOverview
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  image={product.image}
-                  price={product.price}
-                />
-              );
+              return <ProductOverview key={product.id} product={product} />;
             })}
           </div>
         </div>

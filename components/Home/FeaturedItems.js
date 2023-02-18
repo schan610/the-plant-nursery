@@ -8,15 +8,7 @@ const FeaturedItems = (props) => {
 
         <ul className="featured__carousel">
           {props.featuredProducts.map((product) => {
-            return (
-              <ProductOverview
-                key={product.id}
-                name={product.name}
-                image={product.image}
-                id={product.id}
-                price={product.price}
-              />
-            );
+            return <ProductOverview key={product.id} product={product} />;
           })}
         </ul>
       </div>

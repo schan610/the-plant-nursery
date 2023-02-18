@@ -11,7 +11,7 @@ const ProductOverview = (props) => {
     <li className="product-overview">
       <div className="product-overview__img">
         <Link href={`/product/${product.id}`}>
-          <img src={product.image} alt="Featured product" />
+          <img src={product.image} alt="Product" />
         </Link>
       </div>
 

@@ -1,22 +1,29 @@
+import { useState } from "react";
+
 const Variations = (props) => {
+  const variations = props.variations;
+  const [curVariation, setCurVariation] = useState(variations[0]);
+
+  const variationHandler = (name) => {
+    setCurVariation(name);
+  };
+
   return (
     <div className="variations">
-      <span className="variations__current">Charcoal</span>
+      <span className="variations__current">{curVariation}</span>
       <ul className="variations__list">
         {props.variations.map((name) => {
           const className = name.replaceAll(" ", "");
           return (
             <li
               key={className}
-              className={`variations__color variations__color--${className}`}
+              onClick={variationHandler.bind(this, name)}
+              className={`variations__color variations__color--${className} ${
+                curVariation === name && " variations__color--active"
+              }`}
             ></li>
           );
         })}
-        {/* <li className="variations__color variations__color--active variations__color--charcoal "></li>
-        <li className="variations__color  variations__color--whitesmoke "></li>
-        <li className="variations__color  variations__color--ashgrey "></li>
-        <li className="variations__color  variations__color--calmblue "></li>
-        <li className="variations__color  variations__color--honeydew "></li> */}
       </ul>
     </div>
   );

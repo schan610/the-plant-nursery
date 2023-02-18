@@ -1,4 +1,4 @@
-import ProductFeatures from "../ui/ProductFeatures";
+import ProductFeatures from "./ProductFeatures";
 import Variations from "../ui/Variations";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useState } from "react";
@@ -38,7 +38,13 @@ const ProductDetails = (props) => {
           </div>
 
           <div className="product__details__features">
-            {product.type === "plant" && <ProductFeatures />}
+            {product.type === "plant" && (
+              <ProductFeatures
+                petFriendly={product.petFriendly}
+                lowMaintenance={product.lowMaintenance}
+                lowLight={product.lowLight}
+              />
+            )}
             {product.variations && (
               <Variations variations={product.variations} />
             )}

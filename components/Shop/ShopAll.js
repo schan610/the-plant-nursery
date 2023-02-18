@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProductOverview from "../../components/ui/ProductOverview";
+import ProductOverview from "../ui/ProductOverview";
 
 const ShopAll = (props) => {
   return (

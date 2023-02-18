@@ -1,5 +1,3 @@
-import { MongoClient } from "mongodb";
-import { MONGO_URI } from "../../../config";
 // /api/get-products
 // Gets SINGLE product
 
