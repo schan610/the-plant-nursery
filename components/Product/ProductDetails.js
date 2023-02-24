@@ -1,11 +1,14 @@
+import ProductSizes from "./ProductSizes";
 import ProductFeatures from "./ProductFeatures";
 import Variations from "../ui/Variations";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useState } from "react";
 const ProductDetails = (props) => {
   const product = props.product;
+  const [sizePrice, setSizePrice] = useState(
+    product.sizes ? product.sizes.small : null
+  );
   const [curQuantity, setCurQuantity] = useState(1);
-
   const addQuantityHandler = () => {
     if (curQuantity >= 5) return;
     setCurQuantity((prevState) => prevState + 1);
@@ -13,6 +16,10 @@ const ProductDetails = (props) => {
   const removeQuantityHandler = () => {
     if (curQuantity <= 1) return;
     setCurQuantity((prevState) => prevState - 1);
+  };
+
+  const sizePriceHandler = (price) => {
+    setSizePrice(price);
   };
 
   return (
@@ -31,7 +38,9 @@ const ProductDetails = (props) => {
         <div className="product__details">
           <div className="product__details__heading">
             <h1 className="heading-secondary">{product.name}</h1>
-            <span className="text-primary">${product.price}</span>
+            <span className="text-primary">
+              $ {!product.sizes ? product.price : sizePrice}
+            </span>
           </div>
           <div className="product__details__description">
             <p>{product.description}</p>
@@ -44,6 +53,10 @@ const ProductDetails = (props) => {
                 lowMaintenance={product.lowMaintenance}
                 lowLight={product.lowLight}
               />
+            )}
+
+            {product.sizes && (
+              <ProductSizes sizes={product.sizes} handler={sizePriceHandler} />
             )}
             {product.variations && (
               <Variations variations={product.variations} />

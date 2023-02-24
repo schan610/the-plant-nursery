@@ -17,7 +17,7 @@ const Variations = (props) => {
           return (
             <li
               key={className}
-              onClick={variationHandler.bind(this, name)}
+              onClick={() => variationHandler(name)}
               className={`variations__color variations__color--${className} ${
                 curVariation === name && " variations__color--active"
               }`}

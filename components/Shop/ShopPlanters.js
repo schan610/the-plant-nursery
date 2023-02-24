@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import ProductOverview from "../ui/ProductOverview";
-import ShopNavPlants from "./ShopNavPlants";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import ShopNavPlanters from "./ShopNavPlanters";
 import ShopSort from "./ShopSort";
 import { sortProducts } from "../helpers/sort";
-const ShopPlants = (props) => {
-  // State handles current display of products
+import { useRouter } from "next/router";
+
+const ShopPlanters = (props) => {
   const [filters, setFilters] = useState(props.products);
+  console.log(filters);
   const router = useRouter();
 
   // Handles sorting and updates display
@@ -26,35 +28,37 @@ const ShopPlants = (props) => {
       if (filterQuery) {
         const toArray = filterQuery.split("&");
         const filteredItems = props.products.filter((product) => {
+          console.log(product, toArray);
           const bool = toArray.map((fitlerName) => product[fitlerName]);
           return bool.every((item) => item);
         });
         setFilters(sortProducts(filteredItems, "featured"));
-
         return;
       }
+
+      return setFilters(sortProducts(props.products, "featured"));
     }
-    return setFilters(sortProducts(props.products, "featured"));
+
+    setFilters(props.products);
   }, [router.isReady, router.query]);
-
-  // Takes care of sorting method
-
   return (
     <section className="shop">
       <div className="shop__container section-container">
         <div className="shop__heading">
-          <h1 className="heading-secondary">Shop Plants</h1>
+          <h1 className="heading-secondary">Shop All Products</h1>
           <ShopSort sortedHandler={sortHandler} />
         </div>
         <div className="shop__main">
           <aside className="shop__sidebar">
-            <ShopNavPlants />
+            <ShopNavPlanters />
           </aside>
-
           <div className="shop__products">
-            {filters.map((product) => {
-              return <ProductOverview key={product.id} product={product} />;
-            })}
+            {filters.length !== 0 &&
+              filters.map((product) => {
+                return <ProductOverview key={product.id} product={product} />;
+              })}
+
+            {filters.length === 0 && <p>No products available</p>}
           </div>
         </div>
       </div>
@@ -62,4 +66,4 @@ const ShopPlants = (props) => {
   );
 };
 
-export default ShopPlants;
+export default ShopPlanters;

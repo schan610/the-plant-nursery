@@ -21,7 +21,7 @@ const ProductOverview = (props) => {
             {product.name}
           </h3>
         </Link>
-        <span>${product.price}</span>
+        <span>${!product.sizes ? product.price : product.sizes.small}</span>
       </div>
       {product.variations && <Variations variations={product.variations} />}
     </li>

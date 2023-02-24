@@ -96,6 +96,29 @@
   }
 }
 
+.sizes-list {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  &__item {
+    cursor: pointer;
+    width: 8rem;
+    padding: 0.8rem 0;
+    border: 1.5px solid $color-text--lightgrey;
+    border-radius: 2rem;
+    font-family: $font-family--headings;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+
+    &:hover,
+    &--active {
+      background-color: $color-text--grey;
+      border: 1.5px solid $color-text--grey;
+      color: #fff;
+    }
+  }
+}
+
 .variations {
   &__current {
     display: inline-block;
@@ -133,10 +156,13 @@
       background-color: #5c5c5c;
     }
     &--honeydew {
-      background-color: #cfded2;
+      background-color: #c3dfc9;
     }
-    &--ashgrey {
-      background-color: #cad2c5;
+    &--salmon {
+      background-color: #ebc0bc;
+    }
+    &--amber {
+      background-color: #ebc276;
     }
   }
 }
