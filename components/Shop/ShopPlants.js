@@ -4,40 +4,42 @@ import ProductOverview from "../ui/ProductOverview";
 import ShopNavPlants from "./ShopNavPlants";
 import ShopSort from "./ShopSort";
 import { sortProducts } from "../helpers/sort";
+
 const ShopPlants = (props) => {
   // State handles current display of products
-  const [filters, setFilters] = useState(props.products);
+  const [products, setProducts] = useState(
+    sortProducts(props.products, "featured")
+  );
   const router = useRouter();
 
   // Handles sorting and updates display
   const sortHandler = (curSort) => {
-    const sortedProducts = sortProducts(filters, curSort);
-    setFilters(sortedProducts);
+    const sortedProducts = sortProducts(products, curSort);
+    setProducts(sortedProducts);
   };
 
+  // Handles filtering data based on query changes
   useEffect(() => {
     // FILTER HERE
     if (router.isReady) {
-      // Code using query
-      // use dataFetching
-
-      // FILTER HOOK: checkes query
-      const filterQuery = router.query?.features;
-      if (filterQuery) {
-        const toArray = filterQuery.split("&");
+      // checks if query 'features' for filtering exists to filter accordingly
+      if (router.query?.features) {
+        // convert query to an array and return filteredItems
+        const toArray = router.query.features.split("&");
         const filteredItems = props.products.filter((product) => {
           const bool = toArray.map((fitlerName) => product[fitlerName]);
           return bool.every((item) => item);
         });
-        setFilters(sortProducts(filteredItems, "featured"));
 
+        // set current products display to filtered data
+        setProducts(sortProducts(filteredItems, "featured"));
         return;
       }
-    }
-    return setFilters(sortProducts(props.products, "featured"));
-  }, [router.isReady, router.query]);
 
-  // Takes care of sorting method
+      // if no filter query is found, return default
+      setProducts(sortProducts(props.products, "featured"));
+    }
+  }, [router.isReady, router.query]);
 
   return (
     <section className="shop">
@@ -52,7 +54,7 @@ const ShopPlants = (props) => {
           </aside>
 
           <div className="shop__products">
-            {filters.map((product) => {
+            {products.map((product) => {
               return <ProductOverview key={product.id} product={product} />;
             })}
           </div>

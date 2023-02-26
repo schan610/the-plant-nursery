@@ -3,6 +3,12 @@
 .hero {
   background-color: $color-banner;
   padding: 5rem 0;
+  h1 {
+    span {
+      font-style: italic;
+      color: #4d4d4d;
+    }
+  }
   &__container {
     display: flex;
     justify-content: center;

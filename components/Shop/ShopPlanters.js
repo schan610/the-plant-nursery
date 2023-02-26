@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 const ShopPlanters = (props) => {
   const [filters, setFilters] = useState(props.products);
-  console.log(filters);
+  const [activeFilters, setActiveFilters] = useState([]);
   const router = useRouter();
 
   // Handles sorting and updates display
@@ -27,16 +27,19 @@ const ShopPlanters = (props) => {
       const filterQuery = router.query?.features;
       if (filterQuery) {
         const toArray = filterQuery.split("&");
+
+        setActiveFilters(toArray);
         const filteredItems = props.products.filter((product) => {
-          console.log(product, toArray);
           const bool = toArray.map((fitlerName) => product[fitlerName]);
           return bool.every((item) => item);
         });
         setFilters(sortProducts(filteredItems, "featured"));
         return;
       }
+      setActiveFilters([]);
+      setFilters(sortProducts(props.products, "featured"));
 
-      return setFilters(sortProducts(props.products, "featured"));
+      return;
     }
 
     setFilters(props.products);
@@ -50,7 +53,7 @@ const ShopPlanters = (props) => {
         </div>
         <div className="shop__main">
           <aside className="shop__sidebar">
-            <ShopNavPlanters />
+            <ShopNavPlanters activeFilters={activeFilters} />
           </aside>
           <div className="shop__products">
             {filters.length !== 0 &&

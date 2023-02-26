@@ -6,11 +6,11 @@ const Hero = () => {
       <div className="hero__container section-container">
         <div className="hero__text">
           <h1 className="heading-primary">
-            Lorem ipsum dolor sit amet consectetur.
+            Feel better and <span>revitalize</span> your space with plants
           </h1>
           <p className="text-primary">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
-            quibusdam dolor atque excepturi repellat eius itaque molestias nemo.
+            Beautiful plants hand-picked and shipped to your door, grown by
+            people who care — happy and healthy guaranteed.
           </p>
           <div className="hero__actions">
             <Link href={"/shop"} className="btn btn--primary">

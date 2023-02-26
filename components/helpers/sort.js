@@ -2,12 +2,10 @@
 export const sortProducts = (products, curSort) => {
   switch (curSort) {
     case "featured": {
-      console.log(`inhere`);
       const curProducts = [...products];
       const featuredProducts = curProducts.filter(
         (product) => product.featured
       );
-      console.log(featuredProducts);
       const unfeaturedProducts = curProducts.filter(
         (product) => !product.featured
       );
@@ -18,7 +16,6 @@ export const sortProducts = (products, curSort) => {
       // sort products with prices high to low
       const curProducts = [...products];
       const sortedProducts = curProducts.sort((a, b) => {
-        console.log(typeof b.price);
         return +b.price - +a.price;
       });
 
