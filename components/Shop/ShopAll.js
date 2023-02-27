@@ -1,25 +1,23 @@
 import Link from "next/link";
-import { useState } from "react";
 import ProductOverview from "../ui/ProductOverview";
 import ShopSection from "../ui/ShopSection";
 import ShopSort from "./ShopSort";
-import { sortProducts } from "../helpers/sort";
+
+import useFilters from "../hooks/use-filters";
 
 const ShopAll = (props) => {
   // State handles current display of products
-  const [curProducts, setCurProducts] = useState(props.products);
-  console.log(curProducts);
+  const { sortHandler, products } = useFilters(props.products);
   // Handles sorting and updates display
-  const sortHandler = (curSort) => {
-    const sortedProducts = sortProducts(curProducts, curSort);
-    setCurProducts(sortedProducts);
+  const updateSortHandler = (curSort) => {
+    sortHandler(curSort);
   };
 
   return (
     <ShopSection>
       <div className="shop__heading">
         <h1 className="heading-secondary">Shop All Products</h1>
-        <ShopSort sortedHandler={sortHandler} />
+        <ShopSort sortedHandler={updateSortHandler} />
       </div>
       <div className="shop__main">
         <aside className="shop__sidebar">
@@ -35,7 +33,7 @@ const ShopAll = (props) => {
           </nav>
         </aside>
         <div className="shop__products">
-          {curProducts.map((product) => {
+          {products.map((product) => {
             return <ProductOverview key={product.id} product={product} />;
           })}
         </div>

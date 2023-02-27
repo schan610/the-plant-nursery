@@ -35,8 +35,11 @@
 .product-overview {
   &__img {
     width: 100%;
+
     img {
+      object-fit: contain;
       width: 100%;
+      height: unset;
     }
   }
 

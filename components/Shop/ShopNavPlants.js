@@ -1,10 +1,6 @@
-import useFilters from "../hooks/use-filters";
-
-const ShopNavPlants = () => {
-  const { checkFilters, filterStates } = useFilters([]);
-
+const ShopNavPlants = (props) => {
   const checkboxHandler = (e) => {
-    checkFilters(e);
+    props.filtersHandler(e);
   };
 
   return (
@@ -15,7 +11,7 @@ const ShopNavPlants = () => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"petFriendly"}
-            checked={filterStates.includes("petFriendly") ? true : false}
+            checked={props.activeFilters.includes("petFriendly") ? true : false}
           />
           Pet-Friendly
         </li>
@@ -24,7 +20,7 @@ const ShopNavPlants = () => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"lowLight"}
-            checked={filterStates.includes("lowLight") ? true : false}
+            checked={props.activeFilters.includes("lowLight") ? true : false}
           />
           Low-Light
         </li>
@@ -33,7 +29,9 @@ const ShopNavPlants = () => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"lowMaintenance"}
-            checked={filterStates.includes("lowMaintenance") ? true : false}
+            checked={
+              props.activeFilters.includes("lowMaintenance") ? true : false
+            }
           />
           Low-Maintenance
         </li>

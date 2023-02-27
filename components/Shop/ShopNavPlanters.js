@@ -1,10 +1,7 @@
-import useFilters from "../hooks/use-filters";
-
 const ShopNavPlanters = (props) => {
-  const { checkFilters, filterStates } = useFilters([]);
-
+  // update filters by props.checkFilters in shop component
   const checkboxHandler = (e) => {
-    checkFilters(e);
+    props.filtersHandler(e);
   };
 
   return (
@@ -15,7 +12,7 @@ const ShopNavPlanters = (props) => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"planter"}
-            checked={filterStates.includes("planter") ? true : false}
+            checked={props.activeFilters.includes("planter") ? true : false}
           />
           Planters
         </li>
@@ -24,7 +21,7 @@ const ShopNavPlanters = (props) => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"plantStand"}
-            checked={filterStates.includes("plantStand") ? true : false}
+            checked={props.activeFilters.includes("plantStand") ? true : false}
           />
           Plant Stands
         </li>
