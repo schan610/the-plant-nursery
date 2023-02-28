@@ -9,6 +9,8 @@ const Business = () => {
           <Image
             src="https://images.unsplash.com/photo-1528467279403-46af96c37ab3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGxhbnQlMjBjYXJlfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=2000&q=60"
             alt=""
+            width={420}
+            height={750}
           />
         </div>
 
@@ -16,6 +18,8 @@ const Business = () => {
           <Image
             src="https://images.unsplash.com/photo-1521334884684-d80222895322?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
             alt=""
+            width={420}
+            height={350}
           />
         </div>
 
@@ -23,6 +27,8 @@ const Business = () => {
           <Image
             src="https://images.unsplash.com/photo-1492201794891-32eece378309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fGhvdXNlcGxhbnR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=60"
             alt=""
+            width={420}
+            height={350}
           />
         </div>
 
@@ -43,6 +49,8 @@ const Business = () => {
               <Image
                 src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYW50JTIwbnVyc2VyeXxlbnwwfDB8MHx8&auto=format&fit=crop&w=2000&q=60"
                 alt=""
+                width={600}
+                height={420}
               />
             </div>
           </div>

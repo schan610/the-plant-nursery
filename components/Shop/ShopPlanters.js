@@ -7,7 +7,6 @@ const ShopPlanters = (props) => {
   const { checkFilters, sortHandler, activeFilters, products } = useFilters(
     props.products
   );
-  console.log(products);
 
   const updateFiltersHandler = (e) => {
     checkFilters(e);

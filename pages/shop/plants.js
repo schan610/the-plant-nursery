@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import ShopPlants from "../../components/Shop/ShopPlants";
 const PlantsPage = (props) => {
   return <ShopPlants products={props.products} />;

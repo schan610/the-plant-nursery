@@ -1,5 +1,6 @@
-import { useReducer, useEffect, useState, useMemo } from "react";
+import { useReducer, useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
+
 import { sortProducts } from "../helpers/sort";
 // This custom hook returns filtered data to display as wekk a
 const filterReducer = (state, action) => {
@@ -47,25 +48,7 @@ const useFilters = (allProducts) => {
 
   // sets filters, pass in this handler in hook
 
-  // Handles filterState change and pushes filters to query
-  useEffect(() => {
-    //  prevent error with debounce timer (too many url changes)
-    const debounceTimer = setTimeout(() => {
-      if (!filterStates || filterStates.length === 0) {
-        router.push({});
-        return;
-      }
-      const filterQuery = filterStates.join("&");
-      router.query.features = filterQuery;
-      router.push({
-        query: {
-          ...router.query,
-        },
-      });
-    }, 500);
-
-    return () => clearTimeout(debounceTimer);
-  }, [filterStates]);
+  //Handles filterState change and pushes filters to query
 
   useEffect(() => {
     // FILTER HERE
@@ -82,22 +65,20 @@ const useFilters = (allProducts) => {
         setProducts(filteredItems);
         return;
       }
+
       setActiveFilters([]);
       setProducts(allProducts);
     }
-  }, [router.isReady, router.query]);
+  }, [router.isReady, router.query, allProducts]);
 
   //Handles any active filters on mount (refresh)
   useEffect(() => {
     if (router.isReady) {
       if (router.query.features) {
-        dispatch({
-          type: "ACTIVE_FILTERS",
-          filterList: router.query.features.split("&"),
-        });
+        setActiveFilters(router.query.features.split("&"));
       }
     }
-  }, [router.isReady]);
+  }, [router.isReady, router.query]);
 
   return { checkFilters, sortHandler, activeFilters, products };
 };

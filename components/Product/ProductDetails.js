@@ -28,7 +28,14 @@ const ProductDetails = (props) => {
     <section className="product">
       <div className="section-container product__container">
         <div className="product__img">
-          <Image src={product.image} alt={product.name} />
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={710}
+            height={900}
+            quality={100}
+            priority={true}
+          />
           <span>
             Image from Unsplash thanks to &nbsp;
             <a href="https://feey.ch" target="blank">

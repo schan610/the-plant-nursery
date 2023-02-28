@@ -12,13 +12,7 @@ const ProductOverview = (props) => {
     <li className="product-overview">
       <div className="product-overview__img">
         <Link href={`/product/${product.id}`}>
-          <Image
-            src={product.image}
-            alt="Product"
-            width={420}
-            height={525}
-            priority
-          />
+          <Image src={product.image} alt="Product" width={425} height={325} />
         </Link>
       </div>
 

@@ -1,8 +1,8 @@
 import ProductOverview from "../ui/ProductOverview";
 import ShopNavPlants from "./ShopNavPlants";
 import ShopSort from "./ShopSort";
-import { useMemo } from "react";
 import useFilters from "../hooks/use-filters";
+
 const ShopPlants = (props) => {
   const { checkFilters, sortHandler, activeFilters, products } = useFilters(
     props.products
@@ -32,6 +32,13 @@ const ShopPlants = (props) => {
           </aside>
 
           <div className="shop__products">
+            {/* {products.length === 0
+              ? props.products.map((product) => {
+                  return <ProductOverview key={product.id} product={product} />;
+                })
+              : products.map((product) => {
+                  return <ProductOverview key={product.id} product={product} />;
+                })} */}
             {products.map((product) => {
               return <ProductOverview key={product.id} product={product} />;
             })}
