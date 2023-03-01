@@ -4,7 +4,7 @@ import ShopSort from "./ShopSort";
 import useFilters from "../hooks/use-filters";
 
 const ShopPlanters = (props) => {
-  const { checkFilters, sortHandler, activeFilters, products } = useFilters(
+  const { checkFilters, sortHandler, filterQuery, products } = useFilters(
     props.products
   );
 
@@ -26,17 +26,14 @@ const ShopPlanters = (props) => {
         <div className="shop__main">
           <aside className="shop__sidebar">
             <ShopNavPlanters
-              activeFilters={activeFilters}
+              filterQuery={filterQuery}
               filtersHandler={updateFiltersHandler}
             />
           </aside>
           <div className="shop__products">
-            {products.length !== 0 &&
-              products.map((product) => {
-                return <ProductOverview key={product.id} product={product} />;
-              })}
-
-            {products.length === 0 && <p>No products available</p>}
+            {products.map((product) => {
+              return <ProductOverview key={product.id} product={product} />;
+            })}
           </div>
         </div>
       </div>

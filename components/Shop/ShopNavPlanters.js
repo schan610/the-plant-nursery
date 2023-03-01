@@ -1,4 +1,8 @@
 const ShopNavPlanters = (props) => {
+  let activeFilters = "";
+  if (props.filterQuery.features) {
+    activeFilters = props.filterQuery.features;
+  }
   // update filters by props.checkFilters in shop component
   const checkboxHandler = (e) => {
     props.filtersHandler(e);
@@ -12,7 +16,7 @@ const ShopNavPlanters = (props) => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"planter"}
-            checked={props.activeFilters.includes("planter") ? true : false}
+            checked={activeFilters.includes("planter") ? true : false}
           />
           Planters
         </li>
@@ -21,7 +25,7 @@ const ShopNavPlanters = (props) => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"plantStand"}
-            checked={props.activeFilters.includes("plantStand") ? true : false}
+            checked={activeFilters.includes("plantStand") ? true : false}
           />
           Plant Stands
         </li>

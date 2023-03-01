@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useState, useCallback } from "react";
+import { useReducer, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { sortProducts } from "../helpers/sort";
@@ -6,22 +6,34 @@ import { sortProducts } from "../helpers/sort";
 const filterReducer = (state, action) => {
   switch (action.type) {
     case "ADD_FILTER": {
-      const updatedState = [...state];
-      updatedState.push(action.filter);
-
-      return updatedState;
+      if (Object.keys(state).length !== 0) {
+        const updatedState = [...state.features.split(" "), action.filter];
+        const filterQuery = updatedState.join("&");
+        return {
+          features: filterQuery,
+        };
+      }
+      return {
+        features: action.filter,
+      };
     }
 
     case "REMOVE_FILTER": {
-      const updatedState = [...state].filter((name) => {
-        return name !== action.filter;
-      });
-
-      return updatedState;
+      const updatedState = [...state.features.split("&")].filter(
+        (name) => name !== action.filter
+      );
+      const filterQuery = updatedState.join("&");
+      if (!filterQuery) return {};
+      return {
+        features: filterQuery,
+      };
     }
+
     case "ACTIVE_FILTERS": {
-      const updatedState = [...action.filterList];
-      return updatedState;
+      if (action.filters === undefined) return {};
+      return {
+        features: action.filters,
+      };
     }
 
     default:
@@ -31,14 +43,19 @@ const filterReducer = (state, action) => {
 
 const useFilters = (allProducts) => {
   const router = useRouter();
-  const [filterStates, dispatch] = useReducer(filterReducer, []);
-  const [products, setProducts] = useState(allProducts);
-  const [activeFilters, setActiveFilters] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [filterQuery, dispatch] = useReducer(filterReducer, {});
 
   const checkFilters = (e) => {
     !e.target.checked
-      ? dispatch({ type: "REMOVE_FILTER", filter: e.target.name })
-      : dispatch({ type: "ADD_FILTER", filter: e.target.name });
+      ? dispatch({
+          type: "REMOVE_FILTER",
+          filter: e.target.name,
+        })
+      : dispatch({
+          type: "ADD_FILTER",
+          filter: e.target.name,
+        });
   };
 
   const sortHandler = (curSort) => {
@@ -46,18 +63,32 @@ const useFilters = (allProducts) => {
     setProducts(sortedProducts);
   };
 
-  // sets filters, pass in this handler in hook
+  // Handles any active filters on refresh (mount)
+  useEffect(() => {
+    if (router.isReady) {
+      dispatch({ type: "ACTIVE_FILTERS", filters: router.query.features });
+    }
+  }, [router.isReady, router.query.features]);
 
   //Handles filterState change and pushes filters to query
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      if (filterQuery.features !== router.query.features) {
+        router.push({ query: filterQuery });
+      }
+    }, 500);
+
+    return () => clearTimeout(debounceTimer);
+  }, [filterQuery, router]);
 
   useEffect(() => {
     // FILTER HERE
+    // FILTER HOOK: checkes query
     if (router.isReady) {
-      // FILTER HOOK: checkes query
-      const filterQuery = router.query?.features;
-      if (filterQuery) {
-        const toArray = filterQuery.split("&");
-        setActiveFilters(toArray);
+      const query = router.query.features;
+
+      if (query) {
+        const toArray = query.split("&");
         const filteredItems = allProducts.filter((product) => {
           const bool = toArray.map((fitlerName) => product[fitlerName]);
           return bool.every((item) => item);
@@ -65,21 +96,10 @@ const useFilters = (allProducts) => {
         setProducts(filteredItems);
         return;
       }
-
-      setActiveFilters([]);
       setProducts(allProducts);
     }
   }, [router.isReady, router.query, allProducts]);
 
-  //Handles any active filters on mount (refresh)
-  useEffect(() => {
-    if (router.isReady) {
-      if (router.query.features) {
-        setActiveFilters(router.query.features.split("&"));
-      }
-    }
-  }, [router.isReady, router.query]);
-
-  return { checkFilters, sortHandler, activeFilters, products };
+  return { checkFilters, sortHandler, filterQuery, products };
 };
 export default useFilters;

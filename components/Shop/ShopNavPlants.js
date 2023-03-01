@@ -1,4 +1,8 @@
 const ShopNavPlants = (props) => {
+  let activeFilters = "";
+  if (props.filterQuery.features) {
+    activeFilters = props.filterQuery.features;
+  }
   const checkboxHandler = (e) => {
     props.filtersHandler(e);
   };
@@ -11,17 +15,12 @@ const ShopNavPlants = (props) => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"petFriendly"}
-            checked={props.activeFilters.includes("petFriendly") ? true : false}
+            checked={activeFilters.includes("petFriendly") ? true : false}
           />
           Pet-Friendly
         </li>
         <li className="shop__sidebar__item">
-          <input
-            type="checkbox"
-            onChange={checkboxHandler}
-            name={"lowLight"}
-            checked={props.activeFilters.includes("lowLight") ? true : false}
-          />
+          <input type="checkbox" onChange={checkboxHandler} name={"lowLight"} />
           Low-Light
         </li>
         <li className="shop__sidebar__item">
@@ -29,9 +28,7 @@ const ShopNavPlants = (props) => {
             type="checkbox"
             onChange={checkboxHandler}
             name={"lowMaintenance"}
-            checked={
-              props.activeFilters.includes("lowMaintenance") ? true : false
-            }
+            checked={activeFilters.includes("lowMaintenance") ? true : false}
           />
           Low-Maintenance
         </li>
