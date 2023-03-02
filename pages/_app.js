@@ -5,7 +5,10 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Navigation />
-      <Component {...pageProps} />
+      <main>
+        <div id="modal-root" />
+        <Component {...pageProps} />
+      </main>
       <Footer />
     </>
   );

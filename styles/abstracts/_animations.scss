@@ -21,3 +21,18 @@
   }
   @include animate(fade-in, 0.2s, ease-in, 1);
 }
+
+@mixin animate-translate-x {
+  @include keyframes(translate-x) {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @include animate(translate-x, 0.2s, ease-in, 1);
+}

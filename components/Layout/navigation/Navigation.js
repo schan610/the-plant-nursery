@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FaLeaf } from "react-icons/fa";
 import NavDropdown from "../../ui/NavDropdown";
 import ShopNavigation from "./ShopNavigation";
 import AboutNavigation from "./AboutNavigation";
+import CartModal from "../../Cart/CartModal";
+import Modal from "../../ui/Modal";
 
 //TODO:  Might refactor dropdown reducer to a customhook
 const dropdownReducer = (state, action) => {
@@ -35,6 +37,13 @@ const Navigation = () => {
     aboutDropdown: false,
   });
 
+  const [showModal, setShowModal] = useState(false);
+
+  const onCloseModal = () => {
+    document.body.style.overflow = "auto"; // ADD THIS LINE
+    document.body.style.height = "auto"; // ADD THIS LINE
+    setShowModal(false);
+  };
   const openDropdown = (openDropdown) => {
     dispatch({ type: openDropdown });
   };
@@ -49,6 +58,8 @@ const Navigation = () => {
 
   return (
     <div onMouseLeave={closeDropdown} onClick={clickHandler}>
+      {showModal && <Modal show={showModal} onClose={onCloseModal} />}
+
       <nav className="navbar">
         <div className="navbar__container section-container ">
           <ul className="navbar__list">
@@ -70,7 +81,9 @@ const Navigation = () => {
               </Link>
             </div>
           </div>
-          <p className="navbar__cart">My Cart</p>
+          <p className="navbar__cart" onClick={() => setShowModal(true)}>
+            My Cart
+          </p>
         </div>
       </nav>
 

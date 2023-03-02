@@ -1,0 +1,112 @@
+@use "../abstracts" as *;
+
+.backdrop {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.cart-modal {
+  z-index: 15;
+  padding: 2rem 3rem;
+  background-color: #fff;
+  height: 100%;
+  width: 50rem;
+  float: right;
+  overflow: hidden;
+  @include animate-translate-x;
+
+  display: flex;
+  flex-direction: column;
+  &__heading {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+  &__products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  &__product {
+    width: 100%;
+    display: flex;
+    &__img {
+      width: 30%;
+      img {
+        width: 100%;
+        border-radius: 1.2rem;
+      }
+    }
+
+    &__details {
+      width: 100%;
+      padding: 0 1.2rem;
+      font-family: $font-family--headings;
+      font-size: 1.6rem;
+
+      &__heading {
+        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+      }
+
+      &__variation {
+        font-family: $font-family;
+        font-size: 1.4rem;
+        color: $color-text--lightgrey;
+      }
+
+      &__quantity {
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        font-size: 2rem;
+        color: $color-text--lightgrey;
+        span {
+          color: $color-text--primary;
+        }
+        svg {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__price {
+    margin-top: auto;
+    border-top: 1px solid $color-secondary;
+    font-size: 1.8rem;
+    font-family: $font-family--headings;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+
+    &__shipping {
+      margin-top: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 1.6rem;
+    }
+  }
+  &__actions {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+}

@@ -11,6 +11,7 @@ const HomePage = (props) => {
       <Head>
         <title>The Plant Nursery</title>
       </Head>
+
       <Hero />
       <Features />
       <FeaturedItems featuredProducts={props.featuredProducts} />
