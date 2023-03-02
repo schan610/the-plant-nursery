@@ -1,11 +1,15 @@
+import Image from "next/image";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-const CartModalProducts = () => {
+const CartModalProducts = (props) => {
   return (
     <li className="cart-modal__product">
       <div className="cart-modal__product__img">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1611588696789-9b58977ebab1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmVleXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
-          alt=""
+          alt="Product Cart Image"
+          width={96}
+          height={120}
+          quality={100}
         />
       </div>
       <div className="cart-modal__product__details">

@@ -14,7 +14,8 @@ const Testimonial = () => {
               <AiFillStar />
             </div>
             <p className="text-primary testimonial__item__comment">
-              {`${"The plant and pot looks amazing and the package came with a handy care guide as well."}`}
+              &quot;The plant and pot looks amazing and the package came with a
+              handy care guide as well.&quot;
             </p>
             <span className="testimonial__item__author">Jane C</span>
           </li>
@@ -27,7 +28,8 @@ const Testimonial = () => {
               <AiFillStar />
             </div>
             <p className="text-primary testimonial__item__comment">
-              {`${"These plants have obviously been well cared for and the packaging was lovely"}`}
+              &quot;These plants have obviously been well cared for and the
+              packaging was lovely`&quot;
             </p>
             <span className="testimonial__item__author">Lisa M</span>
           </li>
@@ -40,7 +42,8 @@ const Testimonial = () => {
               <AiFillStar />
             </div>
             <p className="text-primary testimonial__item__comment">
-              {`${"The plant came in fast, secure packaging and looks super healthy."}`}
+              &quot;The plant came in fast, secure packaging and looks super
+              healthy.&quot;
             </p>
             <span className="testimonial__item__author">John K</span>
           </li>
