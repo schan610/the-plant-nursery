@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+
 const CartModalProducts = (props) => {
   return (
     <li className="cart-modal__product">

@@ -1,7 +1,8 @@
 import ProductDetails from "../../components/Product/ProductDetails";
+import Product from "../../components/Product/Product";
 import { useRouter } from "next/router";
 const ProductDetailsPage = (props) => {
-  return <ProductDetails product={props.product} />;
+  return <Product product={props.product} />;
 };
 
 export async function getStaticPaths() {
@@ -28,7 +29,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      product: product,
+      product: { ...product, id: product._id.toString(), _id: null },
     },
   };
 }
