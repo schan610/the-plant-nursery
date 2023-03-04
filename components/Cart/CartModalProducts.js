@@ -1,12 +1,23 @@
 import Image from "next/image";
+import { useState } from "react";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { removeItemFromCart, updateItemFromCart } from "../../app/cartSlice";
+import { useDispatch } from "react-redux";
 
 const CartModalProducts = (props) => {
+  const dispatch = useDispatch();
+  const removeQuantityHandler = () => {
+    dispatch(removeItemFromCart(props.id));
+  };
+  const addQuantityHandler = () => {
+    dispatch(updateItemFromCart(props.id));
+  };
+
   return (
     <li className="cart-modal__product">
       <div className="cart-modal__product__img">
         <Image
-          src="https://images.unsplash.com/photo-1611588696789-9b58977ebab1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmVleXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
+          src={props.image}
           alt="Product Cart Image"
           width={96}
           height={120}
@@ -15,17 +26,22 @@ const CartModalProducts = (props) => {
       </div>
       <div className="cart-modal__product__details">
         <div className="cart-modal__product__details__heading">
-          <span>Calathea Maui Queen</span>
-          <span>$142</span>
+          <span>{props.name}</span>
+          <span>${props.totalPrice}</span>
         </div>
 
         <span className="cart-modal__product__details__variation">
-          Charcoal
+          {props.variation &&
+            props.size &&
+            `${props.size} / ${props.variation}`}
+          {props.variation && !props.size && `${props.variation}`}
+          {!props.variation && props.size && `${props.size}`}
         </span>
 
         <div className="cart-modal__product__details__quantity">
-          <AiOutlineMinusCircle /> <span>1</span>
-          <AiOutlinePlusCircle />
+          <AiOutlineMinusCircle onClick={removeQuantityHandler} />{" "}
+          <span>{props.quantity}</span>
+          <AiOutlinePlusCircle onClick={addQuantityHandler} />
         </div>
       </div>
     </li>

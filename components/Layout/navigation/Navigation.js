@@ -45,10 +45,12 @@ const Navigation = () => {
     setShowModal(false);
   };
   const openDropdown = (openDropdown) => {
+    if (showModal) return;
     dispatch({ type: openDropdown });
   };
 
   const closeDropdown = () => {
+    if (showModal) return;
     dispatch({ type: "closeAll" });
   };
 
@@ -59,7 +61,6 @@ const Navigation = () => {
   return (
     <div onMouseLeave={closeDropdown} onClick={clickHandler}>
       {showModal && <Modal show={showModal} onClose={onCloseModal} />}
-
       <nav className="navbar">
         <div className="navbar__container section-container ">
           <ul className="navbar__list">

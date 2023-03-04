@@ -1,12 +1,18 @@
-// import ProductDetails
-
 import ProductDetails from "./ProductDetails";
 import Image from "next/image";
+import { addItemToCart } from "../../app/cartSlice";
+import { useDispatch } from "react-redux";
+
 const Product = (props) => {
   const product = props.product;
-  const cartHandler = (product) => {
-    //dispatch product to cart in here
-    console.log(product);
+  const dispatch = useDispatch();
+  const cartHandler = (item) => {
+    const newItem = {
+      ...item,
+      id: `${item.id}${item.variation}${item.size}`,
+    };
+
+    dispatch(addItemToCart(newItem));
   };
 
   return (

@@ -75,6 +75,7 @@ const ProductDetails = (props) => {
             props.addToCart({
               id: product.id,
               name: product.name,
+              image: product.image,
               quantity: curQuantity,
               variation: curVariation,
               price: sizePrice ? sizePrice : product.price,

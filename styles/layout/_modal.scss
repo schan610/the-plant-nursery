@@ -13,12 +13,12 @@
 
 .cart-modal {
   z-index: 15;
-  padding: 2rem 4rem;
+  padding: 2.4rem 4rem;
   background-color: #fff;
   height: 100%;
   width: 50rem;
   float: right;
-  overflow: hidden;
+
   @include animate-translate-x;
 
   display: flex;
@@ -31,11 +31,13 @@
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    overflow-y: auto;
   }
 
   &__product {
     width: 100%;
     display: flex;
+
     &__img {
       width: 30%;
       img {
@@ -60,8 +62,10 @@
       }
 
       &__variation {
+        display: inline-block;
+        text-transform: uppercase;
         font-family: $font-family;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: $color-text--lightgrey;
       }
 
@@ -71,7 +75,11 @@
         gap: 2.4rem;
         font-size: 2rem;
         color: $color-text--lightgrey;
+
         span {
+          display: inline-block;
+          font-size: 1.6rem;
+          font-family: $font-family;
           color: $color-text--primary;
         }
         svg {
@@ -109,5 +117,25 @@
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+
+    button {
+      font-size: 1.8rem;
+      font-family: $font-family--headings;
+    }
+  }
+
+  &__empty {
+    font-size: 1.6rem;
+    font-family: $font-family--headings;
+    font-weight: bold;
+    text-align: center;
+    margin-top: auto;
+
+    button {
+      font-size: 1.8rem;
+      font-family: $font-family--headings;
+      margin-top: 3.2rem;
+      width: 100%;
+    }
   }
 }

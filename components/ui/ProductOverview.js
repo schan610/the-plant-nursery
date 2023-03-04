@@ -1,13 +1,16 @@
 import Variations from "./Variations";
 import Link from "next/link";
 import Image from "next/image";
-
-// Product name, price, image,
-
-// If variations === true show component, if size === true show component.
+import { useState } from "react";
 
 const ProductOverview = (props) => {
   const product = props.product;
+  const [curVariation, setCurVariation] = useState(
+    product.variations ? product.variations[0] : null
+  );
+  const getCurrentVariation = (variation) => {
+    setCurVariation(variation);
+  };
   return (
     <li className="product-overview">
       <div className="product-overview__img">
@@ -24,7 +27,13 @@ const ProductOverview = (props) => {
         </Link>
         <span>${!product.sizes ? product.price : product.sizes.small}</span>
       </div>
-      {product.variations && <Variations variations={product.variations} />}
+      {product.variations && (
+        <Variations
+          variations={product.variations}
+          curVariation={curVariation}
+          variationHandler={getCurrentVariation}
+        />
+      )}
     </li>
   );
 };
