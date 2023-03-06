@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
-
 import CartModal from "../Cart/CartModal";
+
+import { motion, easeIn, easeOut } from "framer-motion";
 
 const Modal = ({ onClose }) => {
   const [domReady, setDomReady] = useState(false);
@@ -26,9 +27,27 @@ const Modal = ({ onClose }) => {
   }, [backDropHandler]);
 
   const modalContent = (
-    <div className="backdrop" ref={backDropRef}>
+    <motion.div
+      className="backdrop"
+      ref={backDropRef}
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 0.3,
+          type: easeIn,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.3,
+          type: easeOut,
+        },
+      }}
+    >
       <CartModal onClose={onClose} />
-    </div>
+    </motion.div>
   );
 
   if (domReady) {

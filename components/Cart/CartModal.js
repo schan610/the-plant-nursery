@@ -1,10 +1,29 @@
 import CartModalProducts from "./CartModalProducts";
 import { useSelector } from "react-redux";
+import { motion, easeIn, easeOut } from "framer-motion";
+
 const CartModal = (props) => {
   const cart = useSelector((state) => state.cart);
 
   return (
-    <div className="cart-modal">
+    <motion.div
+      className="cart-modal"
+      initial={{ x: "100%" }}
+      animate={{
+        x: 0,
+        transition: {
+          duration: 0.3,
+          type: easeIn,
+        },
+      }}
+      exit={{
+        x: "100%",
+        transition: {
+          duration: 0.3,
+          type: easeOut,
+        },
+      }}
+    >
       <h2 className="heading-secondary cart-modal__heading">Your Cart</h2>
       {cart.items.length !== 0 && (
         <>
@@ -49,7 +68,7 @@ const CartModal = (props) => {
           </button>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

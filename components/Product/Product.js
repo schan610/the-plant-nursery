@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import Modal from "../ui/Modal";
 import { useState } from "react";
 import useModal from "../hooks/use-modal";
-
+import { AnimatePresence } from "framer-motion";
 const Product = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
@@ -23,7 +23,9 @@ const Product = (props) => {
 
   return (
     <section className="product">
-      {showModal && <Modal show={showModal} onClose={() => onCloseModal()} />}
+      <AnimatePresence>
+        {showModal && <Modal show={showModal} onClose={() => onCloseModal()} />}
+      </AnimatePresence>
       <div className="section-container product__container">
         <div className="product__img">
           <Image

@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { AnimatePresence } from "framer-motion";
 import { FaLeaf } from "react-icons/fa";
 import NavDropdown from "../../ui/NavDropdown";
@@ -16,12 +15,15 @@ const Navigation = () => {
   const { dropdownState, openDropdown, closeDropdown } = useDropdown(showModal);
 
   const clickHandler = (e) => {
+    // Whenever a user clicks a link, dropdown closes
     if (e.target.tagName === "A") closeDropdown();
   };
 
   return (
     <div onMouseLeave={closeDropdown} onClick={clickHandler}>
-      {showModal && <Modal show={showModal} onClose={onCloseModal} />}
+      <AnimatePresence>
+        {showModal && <Modal show={showModal} onClose={onCloseModal} />}
+      </AnimatePresence>
       <nav className="navbar">
         <div className="navbar__container section-container ">
           <ul className="navbar__list">
