@@ -1,7 +1,7 @@
 import "../styles/main.scss";
 import Navigation from "../components/Layout/navigation/Navigation";
 import Footer from "../components/Layout/footer/Footer";
-import store from "../app/store";
+import store from "../store/store";
 import { Provider } from "react-redux";
 const MyApp = ({ Component, pageProps }) => {
   return (

@@ -1,12 +1,18 @@
 import ProductDetails from "./ProductDetails";
 import Image from "next/image";
-import { addItemToCart } from "../../app/cartSlice";
+import { addItemToCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
+import Modal from "../ui/Modal";
+import { useState } from "react";
+import useModal from "../hooks/use-modal";
 
 const Product = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
+  const { showModal, onShowModal, onCloseModal } = useModal();
+
   const cartHandler = (item) => {
+    onShowModal();
     const newItem = {
       ...item,
       id: `${item.id}${item.variation}${item.size}`,
@@ -17,6 +23,7 @@ const Product = (props) => {
 
   return (
     <section className="product">
+      {showModal && <Modal show={showModal} onClose={() => onCloseModal()} />}
       <div className="section-container product__container">
         <div className="product__img">
           <Image

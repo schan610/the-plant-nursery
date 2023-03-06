@@ -2,7 +2,6 @@ import CartModalProducts from "./CartModalProducts";
 import { useSelector } from "react-redux";
 const CartModal = (props) => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
   return (
     <div className="cart-modal">

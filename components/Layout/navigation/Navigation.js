@@ -1,58 +1,19 @@
 import Link from "next/link";
-import { useReducer, useState } from "react";
+
 import { AnimatePresence } from "framer-motion";
 import { FaLeaf } from "react-icons/fa";
 import NavDropdown from "../../ui/NavDropdown";
 import ShopNavigation from "./ShopNavigation";
 import AboutNavigation from "./AboutNavigation";
-import CartModal from "../../Cart/CartModal";
 import Modal from "../../ui/Modal";
-
-//TODO:  Might refactor dropdown reducer to a customhook
-const dropdownReducer = (state, action) => {
-  if (action.type === "openShop") {
-    return {
-      shopDropdown: true,
-      aboutDropdown: false,
-    };
-  }
-  if (action.type === "openAbout") {
-    return {
-      shopDropdown: false,
-      aboutDropdown: true,
-    };
-  }
-  if (action.type === "closeAll") {
-    return {
-      shopDropdown: false,
-      aboutDropdown: false,
-    };
-  }
-  return state;
-};
+import { useSelector } from "react-redux";
+import useModal from "../../hooks/use-modal";
+import useDropdown from "../../hooks/use-dropdown";
 
 const Navigation = () => {
-  const [dropdownState, dispatch] = useReducer(dropdownReducer, {
-    shopDropdown: false,
-    aboutDropdown: false,
-  });
-
-  const [showModal, setShowModal] = useState(false);
-
-  const onCloseModal = () => {
-    document.body.style.overflow = "auto"; // ADD THIS LINE
-    document.body.style.height = "auto"; // ADD THIS LINE
-    setShowModal(false);
-  };
-  const openDropdown = (openDropdown) => {
-    if (showModal) return;
-    dispatch({ type: openDropdown });
-  };
-
-  const closeDropdown = () => {
-    if (showModal) return;
-    dispatch({ type: "closeAll" });
-  };
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
+  const { showModal, onShowModal, onCloseModal } = useModal();
+  const { dropdownState, openDropdown, closeDropdown } = useDropdown(showModal);
 
   const clickHandler = (e) => {
     if (e.target.tagName === "A") closeDropdown();
@@ -82,9 +43,13 @@ const Navigation = () => {
               </Link>
             </div>
           </div>
-          <p className="navbar__cart" onClick={() => setShowModal(true)}>
-            My Cart
-          </p>
+
+          <div className="navbar__cart" onClick={() => onShowModal()}>
+            <p>My Cart</p>
+            {cartQuantity !== 0 && (
+              <span className="navbar__cart__quantity">{`(${cartQuantity})`}</span>
+            )}
+          </div>
         </div>
       </nav>
 

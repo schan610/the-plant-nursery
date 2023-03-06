@@ -19,8 +19,6 @@ const Modal = ({ onClose }) => {
 
   useEffect(() => {
     setDomReady(true);
-    document.body.style.overflow = "hidden"; // ADD THIS LINE
-    document.body.style.height = "100%"; // ADD THIS LINE
     // attach event listener to the whole windor with our handler
     window.addEventListener("click", backDropHandler);
     // remove the event listener when the modal is closed
