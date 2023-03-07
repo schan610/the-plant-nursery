@@ -2,7 +2,6 @@
 
 .navbar {
   position: relative;
-
   height: 7.5rem;
   padding-top: 2.5rem;
   border-bottom: 1px solid #dee2e6;
@@ -63,5 +62,16 @@
   &__cart__quantity {
     right: 3rem;
     bottom: 1rem;
+  }
+
+  @media (max-width: 57em) {
+    &__cart {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 46em) {
+    &__list {
+      display: none;
+    }
   }
 }

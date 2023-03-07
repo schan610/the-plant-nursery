@@ -83,4 +83,15 @@
     gap: 1.2rem;
     padding: 2rem 0;
   }
+
+  @media (max-width: 57em) {
+    &__actions {
+      justify-content: center;
+      gap: 10rem;
+
+      &__newsletter {
+        margin-left: 0 auto;
+      }
+    }
+  }
 }

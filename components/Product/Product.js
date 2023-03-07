@@ -1,10 +1,9 @@
 import ProductDetails from "./ProductDetails";
 import Image from "next/image";
+import Modal from "../ui/Modal";
+import useModal from "../hooks/use-modal";
 import { addItemToCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
-import Modal from "../ui/Modal";
-import { useState } from "react";
-import useModal from "../hooks/use-modal";
 import { AnimatePresence } from "framer-motion";
 const Product = (props) => {
   const product = props.product;

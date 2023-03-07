@@ -22,16 +22,6 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-
-        <div className="hero__img">
-          <Image
-            src="https://images.unsplash.com/photo-1560105908-5d41e79c1043?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3IlMjBwbGFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            alt=""
-            width={500}
-            height={660}
-            quality={100}
-          />
-        </div>
       </div>
     </section>
   );

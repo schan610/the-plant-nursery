@@ -29,3 +29,13 @@
   font-family: $font-family--headings;
   line-height: 4rem;
 }
+
+@media (max-width: 67em) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+
+  .text-primary {
+    font-size: 1.8rem;
+  }
+}

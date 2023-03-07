@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import CartModal from "../Cart/CartModal";
+import MobileModal from "../Layout/navigation/MobileModal";
 
 import { motion, easeIn, easeOut } from "framer-motion";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, children }) => {
   const [domReady, setDomReady] = useState(false);
   const backDropRef = useRef();
 
@@ -46,7 +47,7 @@ const Modal = ({ onClose }) => {
         },
       }}
     >
-      <CartModal onClose={onClose} />
+      {children}
     </motion.div>
   );
 
