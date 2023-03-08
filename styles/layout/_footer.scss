@@ -94,4 +94,75 @@
       }
     }
   }
+
+  @media (max-width: 57em) {
+    &__actions {
+      &__newsletter {
+        h3 {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 37em) {
+    &__actions {
+      padding: 0;
+      height: 50rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 4rem;
+
+      &__newsletter {
+        grid-row: 1;
+        grid-column: 1/ -1;
+        margin: 0 auto;
+      }
+
+      &__support,
+      &__business {
+        height: fit-content;
+        margin: 0 auto;
+      }
+    }
+  }
+  @media (max-width: 26em) {
+    &__actions {
+      &__newsletter {
+        width: 90%;
+        h3 {
+          font-size: 1.6rem;
+        }
+      }
+
+      &__support,
+      &__business {
+        height: fit-content;
+        margin: 0 auto;
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        li {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    &__copyright {
+      font-size: 1rem;
+
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 21em) {
+    &__copyright {
+      flex-direction: column;
+    }
+  }
 }

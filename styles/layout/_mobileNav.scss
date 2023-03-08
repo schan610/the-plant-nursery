@@ -20,6 +20,27 @@
       }
     }
   }
+  @media (max-width: 37em) {
+    &__mobile {
+      &__btn {
+        min-width: 10rem;
+      }
+    }
+  }
+  @media (max-width: 26em) {
+    &__mobile {
+      &__btn {
+        font-size: 2rem;
+      }
+    }
+  }
+  @media (max-width: 21em) {
+    &__mobile {
+      &__btn {
+        min-width: 8rem;
+      }
+    }
+  }
 }
 
 .mobile-modal {

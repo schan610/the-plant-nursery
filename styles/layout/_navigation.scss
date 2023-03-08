@@ -17,6 +17,7 @@
     // CHECK FOR CONTAINER REUSABLITY
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   // MAIN NAVIGATION LIST
@@ -72,6 +73,46 @@
   @media (max-width: 46em) {
     &__list {
       display: none;
+    }
+  }
+  @media (max-width: 37em) {
+    &__brand {
+      &__logo {
+        font-size: 1.6rem;
+        letter-spacing: 0.1;
+      }
+    }
+
+    &__cart {
+      min-width: 10rem;
+      gap: 4px;
+      justify-content: end;
+    }
+  }
+  @media (max-width: 26em) {
+    &__brand {
+      &__logo {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+      }
+    }
+    &__cart {
+      min-width: 10rem;
+      font-size: 1.2rem;
+      gap: 2px;
+    }
+  }
+  @media (max-width: 21em) {
+    &__brand {
+      &__logo {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+      }
+    }
+    &__cart {
+      min-width: 8rem;
+      font-size: 1.1rem;
+      gap: 1px;
     }
   }
 }

@@ -50,7 +50,7 @@ const Navigation = () => {
           <div className="navbar__brand">
             <div className="navbar__brand__logo">
               <Link href="/">
-                The Plant Nursery <FaLeaf />
+                Plant Nursery <FaLeaf />
               </Link>
             </div>
           </div>
