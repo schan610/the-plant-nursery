@@ -12,12 +12,13 @@
 }
 
 .cart-modal {
+  position: fixed;
+  right: 0;
   z-index: 15;
   padding: 2.4rem 4rem;
   background-color: #fff;
   height: 100%;
   width: 50rem;
-  float: right;
 
   display: flex;
   flex-direction: column;
@@ -145,10 +146,16 @@
   @media (max-width: 57em) {
     width: 45rem;
   }
-  @media (max-width: 37em) {
-    width: 38rem;
+  @media (max-width: 31em) {
+    width: 100%;
   }
   @media (max-width: 26em) {
-    width: 100%;
+    &__product {
+      &__details {
+        &__heading {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 }

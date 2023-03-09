@@ -39,6 +39,11 @@
     font-size: 1.8rem;
   }
 }
+@media (max-width: 56em) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
 
 @media (max-width: 37em) {
   .heading-primary {

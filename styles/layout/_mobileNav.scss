@@ -44,12 +44,14 @@
 }
 
 .mobile-modal {
+  position: fixed;
+  left: 0;
   z-index: 15;
   padding: 2.4rem 2rem;
   background-color: $color-secondary;
   height: 100%;
   width: 35rem;
-  float: left;
+
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
@@ -86,5 +88,9 @@
       font-weight: 400;
       margin-left: 2rem;
     }
+  }
+
+  @media (max-width: 26em) {
+    width: 100%;
   }
 }

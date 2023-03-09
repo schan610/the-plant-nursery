@@ -2,6 +2,7 @@ import ProductDetails from "./ProductDetails";
 import Image from "next/image";
 import Modal from "../ui/Modal";
 import useModal from "../hooks/use-modal";
+import CartModal from "../Cart/CartModal";
 import { addItemToCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { AnimatePresence } from "framer-motion";
@@ -23,7 +24,11 @@ const Product = (props) => {
   return (
     <section className="product">
       <AnimatePresence>
-        {showModal && <Modal show={showModal} onClose={() => onCloseModal()} />}
+        {showModal && (
+          <Modal show={showModal} onClose={onCloseModal}>
+            <CartModal onClose={onCloseModal} />
+          </Modal>
+        )}
       </AnimatePresence>
       <div className="section-container product__container">
         <div className="product__img">
