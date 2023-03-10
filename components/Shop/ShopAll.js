@@ -4,6 +4,7 @@ import ShopSort from "./ShopSort";
 import ShopNavAll from "./ShopNavAll";
 import useFilters from "../hooks/use-filters";
 import useModal from "../hooks/use-modal";
+import ShopAllModal from "../mobile/ShopAllModal";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../ui/Modal";
 const ShopAll = (props) => {
@@ -25,7 +26,7 @@ const ShopAll = (props) => {
       <AnimatePresence>
         {showModal && (
           <Modal show={showModal} onClose={onCloseModal}>
-            <ShopNavAll
+            <ShopAllModal
               filterQuery={filterQuery}
               filtersHandler={updateFiltersHandler}
               onClose={onCloseModal}
