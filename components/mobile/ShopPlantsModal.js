@@ -1,7 +1,6 @@
-import ShopNavPlanters from "./ShopNavPlanters";
-import ShopNavPlants from "./ShopNavPlants";
 import { motion, easeIn, easeOut } from "framer-motion";
-const ShopNavAll = (props) => {
+import ShopNavPlants from "../Shop/ShopNavPlants";
+const ShopPlantsModal = (props) => {
   return (
     <motion.div
       className="filter-modal"
@@ -26,10 +25,6 @@ const ShopNavAll = (props) => {
         filtersHandler={props.filtersHandler}
       />
 
-      <ShopNavPlanters
-        filterQuery={props.filterQuery}
-        filtersHandler={props.filtersHandler}
-      />
       <button
         className="filter-modal__close btn btn--secondary"
         onClick={props.onClose}
@@ -39,5 +34,4 @@ const ShopNavAll = (props) => {
     </motion.div>
   );
 };
-
-export default ShopNavAll;
+export default ShopPlantsModal;

@@ -159,3 +159,26 @@
     }
   }
 }
+
+.filter-modal {
+  &__close {
+    display: hidden;
+  }
+  @media (max-width: 46rem) {
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    z-index: 15;
+    padding: 2.4rem 2rem;
+
+    height: 100%;
+    width: 32rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &__close {
+      display: block;
+    }
+  }
+}

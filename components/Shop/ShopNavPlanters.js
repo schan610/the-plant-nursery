@@ -9,7 +9,8 @@ const ShopNavPlanters = (props) => {
   };
 
   return (
-    <nav>
+    <>
+      <h3 className="heading-tertiary">Accessories</h3>
       <ul className="shop__sidebar__list-filter">
         <li className="shop__sidebar__item">
           <input
@@ -30,7 +31,7 @@ const ShopNavPlanters = (props) => {
           Plant Stands
         </li>
       </ul>
-    </nav>
+    </>
   );
 };
 export default ShopNavPlanters;

@@ -1,35 +1,55 @@
-import Link from "next/link";
 import ProductOverview from "../ui/ProductOverview";
 import ShopSection from "../ui/ShopSection";
 import ShopSort from "./ShopSort";
-
+import ShopNavAll from "./ShopNavAll";
 import useFilters from "../hooks/use-filters";
-
+import useModal from "../hooks/use-modal";
+import { AnimatePresence } from "framer-motion";
+import Modal from "../ui/Modal";
 const ShopAll = (props) => {
   // State handles current display of products
-  const { sortHandler, products } = useFilters(props.products);
+  const { checkFilters, sortHandler, filterQuery, products } = useFilters(
+    props.products
+  );
+  const { showModal, onShowModal, onCloseModal } = useModal();
+
+  const updateFiltersHandler = (e) => {
+    checkFilters(e);
+  };
   // Handles sorting and updates display
   const updateSortHandler = (curSort) => {
     sortHandler(curSort);
   };
-
   return (
     <ShopSection>
+      <AnimatePresence>
+        {showModal && (
+          <Modal show={showModal} onClose={onCloseModal}>
+            <ShopNavAll
+              filterQuery={filterQuery}
+              filtersHandler={updateFiltersHandler}
+              onClose={onCloseModal}
+            />
+          </Modal>
+        )}
+      </AnimatePresence>
       <div className="shop__heading">
-        <h1 className="heading-secondary">Shop All Products</h1>
+        <h2 className="heading-secondary">Shop All Products</h2>
         <ShopSort sortedHandler={updateSortHandler} />
       </div>
+      <button
+        className="btn btn--primary shop__mobile-filter"
+        onClick={() => onShowModal()}
+      >
+        Filters
+      </button>
       <div className="shop__main">
-        <aside className="shop__sidebar">
+        <aside className="shop__sidebar shop__filter-modal">
           <nav>
-            <ul>
-              <li className="text-primary">
-                <Link href="/shop/plants">View Plants</Link>
-              </li>
-              <li className="text-primary">
-                <Link href="/shop/planters">View Planters</Link>
-              </li>
-            </ul>
+            <ShopNavAll
+              filterQuery={filterQuery}
+              filtersHandler={updateFiltersHandler}
+            />
           </nav>
         </aside>
         <div className="shop__products">

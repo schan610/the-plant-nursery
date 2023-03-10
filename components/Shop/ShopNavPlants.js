@@ -8,7 +8,8 @@ const ShopNavPlants = (props) => {
   };
 
   return (
-    <nav>
+    <>
+      <h3 className="heading-tertiary">Plants</h3>
       <ul className="shop__sidebar__list-filter">
         <li className="shop__sidebar__item">
           <input
@@ -33,7 +34,7 @@ const ShopNavPlants = (props) => {
           Low-Maintenance
         </li>
       </ul>
-    </nav>
+    </>
   );
 };
 export default ShopNavPlants;

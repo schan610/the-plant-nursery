@@ -55,7 +55,7 @@ const Navigation = () => {
             </div>
           </div>
 
-          <div className="navbar__cart" onClick={() => onShowModal("cart")}>
+          <div className="navbar__cart" onClick={() => onShowModal()}>
             <p>My Cart</p>
             {cartQuantity !== 0 && (
               <span className="navbar__cart__quantity">{`(${cartQuantity})`}</span>
