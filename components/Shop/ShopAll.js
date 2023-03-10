@@ -35,14 +35,15 @@ const ShopAll = (props) => {
       </AnimatePresence>
       <div className="shop__heading">
         <h2 className="heading-secondary">Shop All Products</h2>
-        <ShopSort sortedHandler={updateSortHandler} />
       </div>
+
       <button
         className="btn btn--primary shop__mobile-filter"
         onClick={() => onShowModal()}
       >
         Filters
       </button>
+      <ShopSort sortedHandler={updateSortHandler} />
       <div className="shop__main">
         <aside className="shop__sidebar shop__filter-modal">
           <nav>

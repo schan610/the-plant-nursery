@@ -55,6 +55,12 @@
     span {
       font-size: 1.6rem;
     }
+
+    @media (max-width: 26em) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
   }
 
   &__options {

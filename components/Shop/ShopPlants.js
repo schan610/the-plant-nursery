@@ -36,7 +36,6 @@ const ShopPlants = (props) => {
       <div className="shop__container section-container">
         <div className="shop__heading">
           <h1 className="heading-secondary">Shop Plants</h1>
-          <ShopSort sortedHandler={updateSortHandler} />
         </div>
         <button
           className="btn btn--primary shop__mobile-filter"
@@ -44,6 +43,8 @@ const ShopPlants = (props) => {
         >
           Filters
         </button>
+        <ShopSort sortedHandler={updateSortHandler} />
+
         <div className="shop__main">
           <aside className="shop__sidebar">
             <nav>
