@@ -147,13 +147,21 @@
     width: 45rem;
   }
   @media (max-width: 31em) {
+    padding: 2.4rem 2.4rem;
+
     width: 100%;
   }
   @media (max-width: 26em) {
     &__product {
+      &__img {
+        width: 15rem;
+      }
       &__details {
+        padding-right: 0;
         &__heading {
-          font-size: 1.4rem;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
         }
       }
     }
