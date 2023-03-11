@@ -2,6 +2,8 @@ import ShopSection from "../ui/ShopSection";
 import ProductOverview from "../ui/ProductOverview";
 import ShopSort from "./ShopSort";
 import useFilters from "../hooks/use-filters";
+import RouteNavigation from "../ui/RouteNavigation";
+
 const ShopLowLight = (props) => {
   // State handles current display of products
 

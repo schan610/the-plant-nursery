@@ -22,12 +22,11 @@
   }
   &__sort-mobile {
     @media (max-width: 46rem) {
-      margin-top: 1.8rem;
+      margin-top: 1.6rem;
       display: flex;
       flex-direction: column;
       width: 100%;
       align-items: center;
-      gap: 1.2rem;
     }
   }
   &__sort {

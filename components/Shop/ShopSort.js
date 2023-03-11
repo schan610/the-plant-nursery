@@ -24,7 +24,7 @@ const ShopSort = (props) => {
   }, [router.query]);
 
   return (
-    <div className="shop__sort">
+    <div className="shop__sort shop__sort-mobile">
       <button
         className=" shop__sort__btn shop__sort__btn--active"
         onClick={dropdownHandler}

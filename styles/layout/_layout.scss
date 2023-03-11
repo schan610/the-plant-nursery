@@ -39,7 +39,20 @@
   font-size: 3rem;
   font-weight: bold;
 }
-
+.route-navigation {
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  color: $color-text--lightgrey;
+  a:hover {
+    color: #000;
+  }
+  @media (max-width: 37em) {
+    font-size: 1.6rem;
+  }
+  @media (max-width: 26em) {
+    font-size: 1.4rem;
+  }
+}
 // RE-USABLE STYLES
 .product-overview {
   &__img {
