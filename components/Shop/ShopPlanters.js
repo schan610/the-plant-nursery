@@ -1,4 +1,5 @@
 import ProductOverview from "../ui/ProductOverview";
+import ShopSection from "../ui/ShopSection";
 import ShopNavPlanters from "./ShopNavPlanters";
 import ShopSort from "./ShopSort";
 import useFilters from "../hooks/use-filters";
@@ -22,7 +23,7 @@ const ShopPlanters = (props) => {
   };
 
   return (
-    <section className="shop">
+    <ShopSection>
       <AnimatePresence>
         {showModal && (
           <Modal show={showModal} onClose={onCloseModal}>
@@ -34,34 +35,35 @@ const ShopPlanters = (props) => {
           </Modal>
         )}
       </AnimatePresence>
-      <div className="shop__container section-container">
-        <div className="shop__heading">
-          <h1 className="heading-secondary">Shop All Products</h1>
-        </div>
-        <button
-          className="btn btn--primary shop__mobile-filter"
-          onClick={() => onShowModal()}
-        >
-          Filters
-        </button>
-        <ShopSort sortedHandler={updateSortHandler} />
-        <div className="shop__main">
-          <aside className="shop__sidebar shop__sidebar-modal">
-            <nav>
-              <ShopNavPlanters
-                filterQuery={filterQuery}
-                filtersHandler={updateFiltersHandler}
-              />
-            </nav>
-          </aside>
-          <div className="shop__products">
-            {products.map((product) => {
-              return <ProductOverview key={product.id} product={product} />;
-            })}
-          </div>
+      <div className="shop__heading">
+        <h1 className="heading-secondary">Shop Accessories</h1>
+        <div className="shop__sort-mobile">
+          <button
+            className="btn btn--primary shop__mobile-filter"
+            onClick={() => onShowModal()}
+          >
+            Filters
+          </button>
+          <ShopSort sortedHandler={updateSortHandler} />
         </div>
       </div>
-    </section>
+
+      <div className="shop__main">
+        <aside className="shop__sidebar shop__sidebar-modal">
+          <nav>
+            <ShopNavPlanters
+              filterQuery={filterQuery}
+              filtersHandler={updateFiltersHandler}
+            />
+          </nav>
+        </aside>
+        <div className="shop__products">
+          {products.map((product) => {
+            return <ProductOverview key={product.id} product={product} />;
+          })}
+        </div>
+      </div>
+    </ShopSection>
   );
 };
 

@@ -7,6 +7,7 @@ import useModal from "../hooks/use-modal";
 import ShopAllModal from "../mobile/ShopAllModal";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../ui/Modal";
+
 const ShopAll = (props) => {
   // State handles current display of products
   const { checkFilters, sortHandler, filterQuery, products } = useFilters(
@@ -34,17 +35,20 @@ const ShopAll = (props) => {
           </Modal>
         )}
       </AnimatePresence>
+
       <div className="shop__heading">
         <h2 className="heading-secondary">Shop All Products</h2>
+        <div className="shop__sort-mobile">
+          <button
+            className="btn btn--primary shop__mobile-filter"
+            onClick={() => onShowModal()}
+          >
+            Filters
+          </button>
+          <ShopSort sortedHandler={updateSortHandler} />
+        </div>
       </div>
 
-      <button
-        className="btn btn--primary shop__mobile-filter"
-        onClick={() => onShowModal()}
-      >
-        Filters
-      </button>
-      <ShopSort sortedHandler={updateSortHandler} />
       <div className="shop__main">
         <aside className="shop__sidebar shop__filter-modal">
           <nav>

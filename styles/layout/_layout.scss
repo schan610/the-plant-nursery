@@ -30,6 +30,16 @@
   }
 }
 
+.btn--back {
+  width: 8rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
 // RE-USABLE STYLES
 .product-overview {
   &__img {

@@ -48,7 +48,7 @@
   left: 0;
   z-index: 15;
   padding: 2.4rem 2rem;
-  background-color: $color-secondary;
+  background-color: #fff;
   height: 100%;
   width: 35rem;
 
@@ -56,8 +56,8 @@
   flex-direction: column;
   gap: 1.6rem;
 
-  &__close {
-    margin-bottom: 1.4rem;
+  &__wrapper {
+    border-bottom: 1px solid $color-secondary;
   }
 
   &__heading {
@@ -67,17 +67,21 @@
     justify-content: space-between;
     font-size: 2rem;
     font-family: $font-family--headings;
+    color: $color-primary--dark;
     font-weight: bold;
     border: none;
     background-color: transparent;
-
+    margin-bottom: 1rem;
     @include hover-pointer;
     svg {
       font-size: 2.8rem;
     }
   }
-
+  &__close {
+    margin-bottom: 3rem;
+  }
   &__shop {
+    margin-bottom: 1.8rem;
     font-size: 1.8rem;
     ul {
       display: flex;

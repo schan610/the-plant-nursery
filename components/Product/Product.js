@@ -3,10 +3,13 @@ import Image from "next/image";
 import Modal from "../ui/Modal";
 import useModal from "../hooks/use-modal";
 import CartModal from "../Cart/CartModal";
+import { BsArrowLeftShort } from "react-icons/bs";
+import { useRouter } from "next/router";
 import { addItemToCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 const Product = (props) => {
+  const router = useRouter();
   const product = props.product;
   const dispatch = useDispatch();
   const { showModal, onShowModal, onCloseModal } = useModal();
@@ -48,6 +51,14 @@ const Product = (props) => {
           </span>
         </div>
         <ProductDetails product={product} addToCart={cartHandler} />
+      </div>
+      <div className="section-container">
+        <button
+          className="btn btn--secondary btn--back"
+          onClick={() => router.back()}
+        >
+          <BsArrowLeftShort />
+        </button>
       </div>
     </section>
   );

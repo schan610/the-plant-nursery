@@ -1,4 +1,4 @@
-import ShopPlants from "../../components/Shop/ShopPlants";
+import ShopPlants from "../../../components/Shop/ShopPlants";
 const PlantsPage = (props) => {
   return <ShopPlants products={props.products} />;
 };
