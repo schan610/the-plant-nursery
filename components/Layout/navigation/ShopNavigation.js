@@ -30,19 +30,19 @@ const ShopNavigation = () => {
       </ul>
       <ul className="dropdown__list">
         <Link
-          href="/shop/planters"
+          href="/shop/accessories"
           className="dropdown__title heading-secondary"
         >
           Accessories
         </Link>
         <li className="dropdown__item">
-          <Link href="/"> Planters</Link>
+          <Link href="/shop/accessories/planters"> Planters</Link>
         </li>
         <li className="dropdown__item">
-          <Link href="/">Plant stands</Link>
+          <Link href="/shop/accessories/plant-stands">Plant stands</Link>
         </li>
         <li className="dropdown__item">
-          <Link href="/">View all</Link>
+          <Link href="/shop/accessories">View all</Link>
         </li>
       </ul>
     </div>

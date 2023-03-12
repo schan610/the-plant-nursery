@@ -5,12 +5,20 @@ import {
   MdClose,
 } from "react-icons/md";
 import { motion, easeIn, easeOut } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const MobileModal = (props) => {
   const [showPlants, setShowPlants] = useState(false);
   const [showAccessories, setShowAccessories] = useState(false);
+
+  const clickHandler = (e) => {
+    if (e.target.tagName === "A") {
+      props.onClose();
+    }
+    return;
+  };
   return (
     <motion.div
+      onClick={clickHandler}
       className="mobile-modal"
       initial={{ x: "-100%" }}
       animate={{
@@ -73,7 +81,7 @@ const MobileModal = (props) => {
           className="mobile-modal__heading"
           onClick={() => setShowAccessories((prevState) => !prevState)}
         >
-          Accessories{" "}
+          Accessories
           {showAccessories ? (
             <MdOutlineKeyboardArrowUp />
           ) : (
@@ -83,8 +91,14 @@ const MobileModal = (props) => {
         {showAccessories && (
           <div className="mobile-modal__shop">
             <ul>
-              <li>Plant Stands</li>
-              <li>Pots</li>
+              <li>
+                <Link href={`/shop/accessories/planters`}>Planters</Link>
+              </li>
+              <li>
+                <Link href={`/shop/accessories/plant-stands`}>
+                  Plant Stands
+                </Link>
+              </li>
               <li>
                 <Link href={`/shop/accessories`}>View All</Link>
               </li>

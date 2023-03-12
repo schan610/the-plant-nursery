@@ -1,10 +1,12 @@
-import ShopPlanters from "../../components/Shop/ShopPlanters";
+import ShopAccessories from "../../../components/Shop/ShopAccessories";
 
-const PlantersPage = (props) => {
-  return <ShopPlanters products={props.products} />;
+const AccessoriesPage = (props) => {
+  return <ShopAccessories products={props.products} />;
 };
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3000/api/products/planters");
+  const response = await fetch(
+    "http://localhost:3000/api/products/accessories"
+  );
   const planters = await response.json();
 
   return {
@@ -19,4 +21,4 @@ export async function getStaticProps() {
     },
   };
 }
-export default PlantersPage;
+export default AccessoriesPage;

@@ -2,7 +2,8 @@ import ShopSection from "../ui/ShopSection";
 import ProductOverview from "../ui/ProductOverview";
 import ShopSort from "./ShopSort";
 import useFilters from "../hooks/use-filters";
-const ShopPlanters = (props) => {
+
+const ShopPlantStands = (props) => {
   const { sortHandler, products } = useFilters(props.products);
   const updateSortHandler = (curSort) => {
     sortHandler(curSort);
@@ -10,7 +11,7 @@ const ShopPlanters = (props) => {
   return (
     <ShopSection>
       <div className="shop__heading">
-        <h2 className="heading-secondary">Planters</h2>
+        <h2 className="heading-secondary">Plant Stands</h2>
         <ShopSort sortedHandler={updateSortHandler} />
       </div>
       <div className="shop__main">
@@ -23,5 +24,4 @@ const ShopPlanters = (props) => {
     </ShopSection>
   );
 };
-
-export default ShopPlanters;
+export default ShopPlantStands;
