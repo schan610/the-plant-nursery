@@ -7,22 +7,29 @@ const RouteNavigation = () => {
     .slice(1)
     .split("/")
     .map((pathname, index, array) => {
+      let name = pathname === "shop" ? `Shop All` : pathname;
       if (index === 0) {
-        return { name: pathname, path: `/${pathname}` };
+        return { name, path: `/${pathname}` };
       }
       prev = `${prev ? prev : ``}/${array[index - 1]}`;
-      return { name: pathname, path: `${prev}/${pathname}` };
+      return { name, path: `${prev}/${pathname}` };
     });
 
   return (
-    <div className="route-navigation">
+    <nav className="route-navigation">
       {pathsArray.map((path, index) => {
         if (index === 0) {
-          return <Link href={path.path}>{path.name} </Link>;
+          return (
+            <Link href={path.path} key={path.path}>
+              {`/ ${path.name} `}
+            </Link>
+          );
         }
-        return <Link href={path.path}>{`/ ${path.name} `}</Link>;
+        return (
+          <Link href={path.path} key={path.path}>{`/ ${path.name} `}</Link>
+        );
       })}
-    </div>
+    </nav>
   );
 };
 

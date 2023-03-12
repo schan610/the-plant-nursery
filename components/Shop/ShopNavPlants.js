@@ -21,7 +21,12 @@ const ShopNavPlants = (props) => {
           Pet-Friendly
         </li>
         <li className="shop__sidebar__item">
-          <input type="checkbox" onChange={checkboxHandler} name={"lowLight"} />
+          <input
+            type="checkbox"
+            onChange={checkboxHandler}
+            name={"lowLight"}
+            checked={activeFilters.includes("lowLight") ? true : false}
+          />
           Low-Light
         </li>
         <li className="shop__sidebar__item">

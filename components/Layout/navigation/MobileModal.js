@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
@@ -48,10 +49,20 @@ const MobileModal = (props) => {
         {showPlants && (
           <div className="mobile-modal__shop">
             <ul>
-              <li>Pet-Friendly</li>
-              <li>Low-Light</li>
-              <li>Low-Maintenance</li>
-              <li>View All</li>
+              <li>
+                <Link href={`/shop/plants/pet-friendly`}>Pet-Friendly</Link>
+              </li>
+              <li>
+                <Link href={`/shop/plants/low-light`}>Low-Light</Link>
+              </li>
+              <li>
+                <Link href={`/shop/plants/low-maintenance`}>
+                  Low-Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link href={`/shop/plants`}>View All</Link>
+              </li>
             </ul>
           </div>
         )}
@@ -74,7 +85,9 @@ const MobileModal = (props) => {
             <ul>
               <li>Plant Stands</li>
               <li>Pots</li>
-              <li>View all</li>
+              <li>
+                <Link href={`/shop/accessories`}>View All</Link>
+              </li>
             </ul>
           </div>
         )}{" "}
