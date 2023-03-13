@@ -12,9 +12,15 @@ const ShopPetFriendly = (props) => {
   return (
     <ShopSection>
       <div className="shop__heading">
-        <h2 className="heading-secondary">Pet-Friendly Plants</h2>
-        <ShopSort sortedHandler={updateSortHandler} />
+        <div>
+          <h2 className="heading-secondary">Pet-Friendly Plants</h2>
+          <p>
+            Browse all of our non-toxic, pet-friendly plant selections. Grow
+            your plant collection all while keeping your pets safe, worry-free.
+          </p>
+        </div>
       </div>
+      <ShopSort sortedHandler={updateSortHandler} />
       <div className="shop__main">
         <div className="shop__products">
           {products.map((product) => {

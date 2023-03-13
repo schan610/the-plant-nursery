@@ -12,9 +12,16 @@ const ShopLowMaintenance = (props) => {
   return (
     <ShopSection>
       <div className="shop__heading">
-        <h2 className="heading-secondary">Low-Maintenance Plants</h2>
-        <ShopSort sortedHandler={updateSortHandler} />
+        <div>
+          <h2 className="heading-secondary">Low-Maintenance Plants</h2>
+          <p>
+            Love the look and benefits but don't want the hassle? Grow you plant
+            collection with these low-maintenance plants that are simple and
+            easy to care for.
+          </p>
+        </div>
       </div>
+      <ShopSort sortedHandler={updateSortHandler} />
       <div className="shop__main">
         <div className="shop__products">
           {products.map((product) => {

@@ -4,8 +4,10 @@ const AboutNavigation = () => {
   return (
     <div className="dropdown__container section-container ">
       <ul className="dropdown__list">
-        <h2 className="dropdown__title heading-secondary">About</h2>
-        <li className="dropdown__item">Our Business</li>
+        <h2 className="dropdown__title heading-secondary">
+          <Link href="/about">About</Link>
+        </h2>
+        <li className="dropdown__item">Our Story</li>
         <li className="dropdown__item">Visit us</li>
       </ul>
       <ul className="dropdown__list">

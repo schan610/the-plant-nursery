@@ -14,9 +14,16 @@ const ShopLowLight = (props) => {
   return (
     <ShopSection>
       <div className="shop__heading">
-        <h2 className="heading-secondary">Low-Light Plants</h2>
-        <ShopSort sortedHandler={updateSortHandler} />
+        <div>
+          <h2 className="heading-secondary">Low-Light Plants</h2>
+          <p>
+            Space lacking ideal light conditions? Browse all of our low-light
+            level plants for when you want to spruce up areas with little
+            natural light.
+          </p>
+        </div>
       </div>
+      <ShopSort sortedHandler={updateSortHandler} />
       <div className="shop__main">
         <div className="shop__products">
           {products.map((product) => {

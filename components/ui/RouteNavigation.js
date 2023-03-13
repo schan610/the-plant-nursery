@@ -17,18 +17,21 @@ const RouteNavigation = () => {
 
   return (
     <nav className="route-navigation">
-      {pathsArray.map((path, index) => {
-        if (index === 0) {
+      {pathsArray.length !== 1 &&
+        pathsArray.map((path, index, array) => {
+          if (index === 0) {
+            return (
+              <Link href={path.path} key={path.path}>
+                {` ${path.name} /`}
+              </Link>
+            );
+          }
           return (
-            <Link href={path.path} key={path.path}>
-              {`/ ${path.name} `}
-            </Link>
+            <Link href={path.path} key={path.path}>{` ${path.name} ${
+              index !== array.length - 1 ? "/" : ""
+            }`}</Link>
           );
-        }
-        return (
-          <Link href={path.path} key={path.path}>{`/ ${path.name} `}</Link>
-        );
-      })}
+        })}
     </nav>
   );
 };
