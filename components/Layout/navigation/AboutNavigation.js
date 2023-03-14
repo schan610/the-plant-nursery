@@ -7,7 +7,9 @@ const AboutNavigation = () => {
         <h2 className="dropdown__title heading-secondary">
           <Link href="/about">About</Link>
         </h2>
-        <li className="dropdown__item">Our Story</li>
+        <li className="dropdown__item">
+          <Link href="/about/our-story">Our Story</Link>
+        </li>
         <li className="dropdown__item">Visit us</li>
       </ul>
       <ul className="dropdown__list">

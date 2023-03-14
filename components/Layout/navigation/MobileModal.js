@@ -5,7 +5,7 @@ import {
   MdClose,
 } from "react-icons/md";
 import { motion, easeIn, easeOut } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const MobileModal = (props) => {
   const [showPlants, setShowPlants] = useState(false);
   const [showAccessories, setShowAccessories] = useState(false);
@@ -106,9 +106,9 @@ const MobileModal = (props) => {
           </div>
         )}{" "}
       </div>
-      <a href="#" className="mobile-modal__heading">
+      <Link href="/about/our-story" className="mobile-modal__heading">
         Our Business
-      </a>
+      </Link>
       <a href="#" className="mobile-modal__heading">
         Visit us
       </a>
