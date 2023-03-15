@@ -68,7 +68,7 @@ const StoryDetails = () => {
           </div>
           <div className="story__content__img">
             <img
-              src="https://images.unsplash.com/photo-1678254487407-a28544364f80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1510&q=80"
+              src="https://images.unsplash.com/photo-1525033842647-a956848705f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
               alt=""
             />
           </div>

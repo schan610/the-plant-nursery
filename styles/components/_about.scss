@@ -325,3 +325,133 @@
     }
   }
 }
+
+.visit {
+  &__container {
+    padding: 4rem 1rem;
+    display: flex;
+  }
+
+  &__text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    padding: 5rem 10rem;
+
+    width: 100%;
+
+    &__title {
+      h2 {
+        color: $color-text--grey;
+        font-size: 3.8rem;
+        border-bottom: 1px solid $color-secondary--dark;
+      }
+    }
+
+    &__contact-info {
+      padding: 3rem 0;
+      padding-bottom: 1.8rem;
+
+      h3 {
+        font-size: 2.4rem;
+        color: inherit;
+      }
+
+      p {
+        line-height: 2;
+        font-size: 1.8rem;
+        font-family: $font-family--headings;
+      }
+    }
+    &__contact-form {
+      h3 {
+        font-size: 2.4rem;
+        color: inherit;
+        margin-bottom: 1.2rem;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-size: 1.6rem;
+      }
+
+      input,
+      textarea {
+        resize: none;
+        padding: 4px;
+        margin-bottom: 1.6rem;
+      }
+    }
+  }
+
+  &__img {
+    background-color: #e1e1e1;
+    background-image: url(https://images.unsplash.com/photo-1613375762302-670aee309a25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+  }
+
+  @media (max-width: 67em) {
+    &__text {
+      padding: 5rem 8rem;
+    }
+    &__img {
+      width: 60rem;
+    }
+  }
+  @media (max-width: 57em) {
+    &__text {
+      &__title {
+        h2 {
+          font-size: 3rem;
+        }
+      }
+
+      &__contact-info {
+        h3 {
+          font-size: 2rem;
+          color: inherit;
+        }
+
+        p {
+          font-size: 1.6rem;
+        }
+      }
+      &__contact-form {
+        h3 {
+          font-size: 2rem;
+        }
+
+        label {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 46em) {
+    &__container {
+      flex-direction: column;
+    }
+    &__img {
+      height: 45rem;
+      width: 100%;
+    }
+  }
+  @media (max-width: 31em) {
+    &__text {
+      padding: 2rem;
+    }
+  }
+  @media (max-width: 26em) {
+    &__img {
+      height: 30rem;
+    }
+  }
+}

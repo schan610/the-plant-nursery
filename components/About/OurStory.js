@@ -23,7 +23,7 @@ const OurStory = () => {
               for plants.
             </p>
 
-            <Link href="/" className="btn btn--secondary">
+            <Link href="/about/visit" className="btn btn--secondary">
               Visit us
             </Link>
           </div>
