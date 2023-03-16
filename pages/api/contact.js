@@ -1,10 +1,14 @@
 const SENDGRID_USER = process.env.SENDGRID_USER;
 const SENDGRID_PASSWORD = process.env.SENDGRID_PASSWORD;
-
 const nodemailer = require("nodemailer");
+
+// api sends any messages to business email using nodemailer and sendgrid as the smtp transport
+
 export default async function (req, res) {
+  // data = message and user data
   const data = req.body;
 
+  // Create transport via SMTP transport with Sendgrid
   const transporter = nodemailer.createTransport({
     host: "smtp.sendgrid.net",
     port: 465,
@@ -25,5 +29,5 @@ export default async function (req, res) {
     </div>`,
   });
 
-  res.status(200);
+  res.send();
 }

@@ -1,10 +1,17 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import ErrorMsg from "../ui/ErrorMsg";
+
+// This component handles the Visit page
 const VisitUs = () => {
+  // Set up states and refs for form submission
+  const [isSending, setIsSending] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const contactName = useRef();
   const contactEmail = useRef();
   const contactSubject = useRef();
   const contactMessage = useRef();
 
+  // Function to reset form whenever message successfully sent
   const resetForm = () => {
     contactName.current.value = "";
     contactEmail.current.value = "";
@@ -12,9 +19,14 @@ const VisitUs = () => {
     contactMessage.current.value = "";
   };
 
+  // Function handles submit and fetches from API to get response.
   const handleSubmit = async (e) => {
+    // Guard clause to prevent multiple calls when one is still running
+    if (isSending) return;
+    setIsSending(true);
     e.preventDefault();
 
+    // Set up form data
     const data = {
       name: contactName.current.value,
       email: contactEmail.current.value,
@@ -31,9 +43,15 @@ const VisitUs = () => {
       body: JSON.stringify(data),
     });
 
+    // Handle response
     if (!response.ok) {
+      setIsSending(false);
+      setHasError(true);
+      console.log(`Could not send`);
       return;
     }
+    setHasError(false);
+    setIsSending(false);
     resetForm();
   };
   return (
@@ -69,13 +87,20 @@ const VisitUs = () => {
               ></textarea>
 
               <button
-                type="submit"
-                className="btn btn--secondary"
+                type="button"
+                className={`btn btn--secondary ${isSending && "btn--disabled"}`}
                 onClick={handleSubmit}
               >
-                Send
+                {isSending ? "Sending" : "Send"}
               </button>
             </form>
+            {hasError && (
+              <ErrorMsg
+                message={
+                  "There was an error trying to send you message. Please try again later."
+                }
+              />
+            )}
           </div>
         </div>
       </div>

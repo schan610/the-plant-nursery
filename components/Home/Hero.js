@@ -17,7 +17,7 @@ const Hero = () => {
             <Link href={"/shop"} className="btn btn--primary">
               Shop now
             </Link>
-            <Link href="/" className="btn btn--secondary">
+            <Link href="/about/our-story" className="btn btn--secondary">
               Learn more
             </Link>
           </div>

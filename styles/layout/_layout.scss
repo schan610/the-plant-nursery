@@ -3,6 +3,21 @@
 .section-container {
   @include container-max-width;
 }
+
+.error-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1rem auto;
+  color: $color-text--lightgrey;
+  font-weight: 500;
+  font-size: 1.6rem;
+
+  svg {
+    font-size: 2rem;
+  }
+}
 .btn {
   cursor: pointer;
   font-size: 1.6rem;
@@ -27,6 +42,14 @@
   transition: all 0.2s;
   &:hover {
     background-color: $color-secondary--dark;
+  }
+}
+
+.btn--disabled {
+  cursor: default;
+  background-color: #cbcbcb;
+  &:hover {
+    background-color: #cbcbcb;
   }
 }
 
