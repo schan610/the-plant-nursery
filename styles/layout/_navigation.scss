@@ -34,7 +34,6 @@
   }
 
   // LOGO AND CART
-
   &__brand {
     width: 100%;
     &__logo {
@@ -46,7 +45,6 @@
 
       letter-spacing: 1.5px;
       color: $color-primary--dark;
-
       // Center logo
       @include hover-pointer;
     }

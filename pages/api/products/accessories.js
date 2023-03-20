@@ -9,12 +9,10 @@ async function handler(req, res) {
 
   if (req.query.filter) {
     const filter = req.query.filter;
-    console.log(filter);
     const filteredCollections = await db
       .collection("accessories")
       .find({ [filter]: true })
       .toArray();
-    console.log(filteredCollections);
     client.close();
     res.send(filteredCollections);
     return;
