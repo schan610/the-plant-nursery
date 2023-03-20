@@ -1,3 +1,4 @@
+// Custom hook handles navigation dropdown state
 import { useReducer } from "react";
 const dropdownReducer = (state, action) => {
   if (action.type === "openShop") {
@@ -26,6 +27,7 @@ const useDropdown = (showModal) => {
     aboutDropdown: false,
   });
 
+  // Ensure event listener is not run when a modal is open
   const openDropdown = (openDropdown) => {
     if (showModal) return;
     dispatch({ type: openDropdown });

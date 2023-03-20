@@ -7,6 +7,7 @@ export const cartSlice = createSlice({
     totalPrice: 0,
   },
   reducers: {
+    // If item and variation already exists in cart update quantity
     addItemToCart: (state, action) => {
       const newItem = action.payload;
       const priceItem = newItem.price * newItem.quantity;
@@ -14,7 +15,6 @@ export const cartSlice = createSlice({
         return item.id === newItem.id;
       });
       if (existingItem) {
-        // TODO: if there is an existing item, update the quantity and price
         existingItem.quantity += newItem.quantity;
         existingItem.totalPrice += Number(newItem.price) * newItem.quantity;
         state.totalQuantity += newItem.quantity;
@@ -42,7 +42,7 @@ export const cartSlice = createSlice({
       state.totalQuantity--;
       state.totalPrice -= existingItem.price;
     },
-
+    // Update changes from cart modal
     updateItemFromCart: (state, action) => {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);

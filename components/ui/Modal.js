@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
-import CartModal from "../Cart/CartModal";
-import MobileModal from "../Layout/navigation/MobileModal";
-
 import { motion, easeIn, easeOut } from "framer-motion";
 
 const Modal = ({ onClose, children }) => {
@@ -11,6 +8,7 @@ const Modal = ({ onClose, children }) => {
 
   const backDropHandler = useCallback(
     (e) => {
+      console.log(`changes`);
       if (e.target !== backDropRef.current) return;
       if (backDropRef?.current?.contains(e.target)) {
         onClose();
@@ -21,7 +19,7 @@ const Modal = ({ onClose, children }) => {
 
   useEffect(() => {
     setDomReady(true);
-    // attach event listener to the whole windor with our handler
+    // attach event listener to the whole window with our handler
     window.addEventListener("click", backDropHandler);
     // remove the event listener when the modal is closed
     return () => window.removeEventListener("click", backDropHandler);

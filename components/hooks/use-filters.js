@@ -2,10 +2,11 @@ import { useReducer, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { sortProducts } from "../helpers/sort";
-// This custom hook returns filtered data to display as wekk a
+// This custom hook returns filtered data to display
 const filterReducer = (state, action) => {
   switch (action.type) {
     case "ADD_FILTER": {
+      // Check for active filters on mount
       if (Object.keys(state).length !== 0) {
         const updatedState = [...state.features.split(" "), action.filter];
         const filterQuery = updatedState.join("&");
@@ -42,6 +43,7 @@ const filterReducer = (state, action) => {
 };
 
 const useFilters = (allProducts) => {
+  // set up states
   const router = useRouter();
   const [products, setProducts] = useState([]);
   const [filterQuery, dispatch] = useReducer(filterReducer, {});
@@ -63,7 +65,7 @@ const useFilters = (allProducts) => {
     setProducts(sortedProducts);
   };
 
-  // Handles any active filters on refresh (mount)
+  // Handles any active filters on refresh (mount) and adds to filterQuery
   useEffect(() => {
     if (router.isReady) {
       dispatch({ type: "ACTIVE_FILTERS", filters: router.query.features });
@@ -81,6 +83,7 @@ const useFilters = (allProducts) => {
     return () => clearTimeout(debounceTimer);
   }, [filterQuery, router]);
 
+  // Handles filtering products on query changes
   useEffect(() => {
     // FILTER HERE
     // FILTER HOOK: checkes query

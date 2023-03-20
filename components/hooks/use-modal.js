@@ -3,23 +3,23 @@ import { useState } from "react";
 // Custom hook controls modal view
 const useModal = () => {
   const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState("");
 
   const onCloseModal = () => {
-    document.body.style.overflow = "auto"; // ADD THIS LINE
-    document.body.style.height = "auto"; // ADD THIS LINE
+    // resume default scroll when modal is closed
+    document.body.style.overflow = "auto";
+    document.body.style.height = "auto";
     setShowModal(false);
   };
 
-  const onShowModal = (type) => {
-    document.body.style.overflow = "hidden"; // ADD THIS LINE
-    document.body.style.height = "100%"; // ADD THIS LINE
+  const onShowModal = () => {
+    // remove scroll on when a modal is open
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100%";
     setShowModal(true);
   };
 
   return {
     showModal,
-
     onShowModal,
     onCloseModal,
   };

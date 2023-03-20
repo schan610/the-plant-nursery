@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 
 // api sends any messages to business email using nodemailer and sendgrid as the smtp transport
 
-export default async function (req, res) {
+async function handler(req, res) {
   // data = message and user data
   const data = req.body;
 
@@ -31,3 +31,5 @@ export default async function (req, res) {
 
   res.send();
 }
+
+export default handler;

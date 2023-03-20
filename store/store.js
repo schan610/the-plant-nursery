@@ -12,6 +12,8 @@ import {
 } from "redux-persist";
 
 import cartSlice from "./cartSlice";
+// Issue: creating local storage on server rendering
+// Resolved github form: https://github.com/vercel/next.js/discussions/15687
 
 const createNoopStorage = () => {
   return {
@@ -39,6 +41,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, cartSlice);
 
+// keep cart data on local storage
 export const store = configureStore({
   reducer: { cart: persistedReducer },
   middleware: (getDefaultMiddleware) =>

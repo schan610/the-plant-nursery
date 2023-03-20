@@ -43,7 +43,7 @@ const VisitUs = () => {
       body: JSON.stringify(data),
     });
 
-    // Handle response
+    // Handle response if mail successfully send
     if (!response.ok) {
       setIsSending(false);
       setHasError(true);

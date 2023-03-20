@@ -1,4 +1,5 @@
 import ProductOverview from "../ui/ProductOverview";
+import ErrorMsg from "../ui/ErrorMsg";
 import ShopSection from "../ui/ShopSection";
 import ShopSort from "./ShopSort";
 import ShopNavAll from "./ShopNavAll";
@@ -59,6 +60,11 @@ const ShopAll = (props) => {
           </nav>
         </aside>
         <div className="shop__products">
+          {products.length === 0 && (
+            <ErrorMsg
+              message={`Couldn't find any products based on your query`}
+            />
+          )}
           {products.map((product) => {
             return <ProductOverview key={product.id} product={product} />;
           })}

@@ -15,9 +15,9 @@ const ShopLowMaintenance = (props) => {
         <div>
           <h2 className="heading-secondary">Low-Maintenance Plants</h2>
           <p>
-            Love the look and benefits but don't want the hassle? Grow you plant
+            {`Love the look and benefits but don't want the hassle? Grow you plant
             collection with these low-maintenance plants that are simple and
-            easy to care for.
+            easy to care for.`}
           </p>
         </div>
       </div>

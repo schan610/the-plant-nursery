@@ -128,7 +128,7 @@
 }
 
 .featured {
-  margin: 5rem 0;
+  margin: 10rem 0;
 
   &__container {
     display: flex;
@@ -150,7 +150,7 @@
 }
 
 .business {
-  margin-top: 5rem;
+  margin-top: 10rem;
 
   &__container {
     padding: 3rem;
@@ -317,6 +317,7 @@
 }
 
 .testimonial {
+  margin-top: 10rem;
   &__list {
     display: flex;
     justify-content: center;

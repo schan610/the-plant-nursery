@@ -109,9 +109,9 @@ const MobileModal = (props) => {
       <Link href="/about/our-story" className="mobile-modal__heading">
         Our Business
       </Link>
-      <a href="#" className="mobile-modal__heading">
+      <Link href="/about/visit" className="mobile-modal__heading">
         Visit us
-      </a>
+      </Link>
       <a href="#" className="mobile-modal__heading">
         Support
       </a>

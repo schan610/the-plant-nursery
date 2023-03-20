@@ -5,6 +5,7 @@ import ShopSort from "./ShopSort";
 import Modal from "../ui/Modal";
 import useFilters from "../hooks/use-filters";
 import useModal from "../hooks/use-modal";
+import ErrorMsg from "../ui/ErrorMsg";
 import { AnimatePresence } from "framer-motion";
 import ShopPlantsModal from "../mobile/ShopPlantsModal";
 const ShopPlants = (props) => {
@@ -58,6 +59,11 @@ const ShopPlants = (props) => {
         </aside>
 
         <div className="shop__products">
+          {products.length === 0 && (
+            <ErrorMsg
+              message={`Couldn't find any products based on your query`}
+            />
+          )}
           {products.map((product) => {
             return <ProductOverview key={product.id} product={product} />;
           })}

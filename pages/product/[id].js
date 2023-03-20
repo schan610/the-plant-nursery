@@ -1,6 +1,4 @@
-import ProductDetails from "../../components/Product/ProductDetails";
 import Product from "../../components/Product/Product";
-import { useRouter } from "next/router";
 const ProductDetailsPage = (props) => {
   return <Product product={props.product} />;
 };

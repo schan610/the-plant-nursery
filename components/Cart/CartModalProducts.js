@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useState } from "react";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { removeItemFromCart, updateItemFromCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
