@@ -1,15 +1,12 @@
 import ShopPetFriendly from "../../../components/Shop/ShopPetFriendly";
-
+import { getPlants } from "../../../helpers/api-product-util";
 const PetFriendly = (props) => {
   return <ShopPetFriendly products={props.products} />;
 };
 
 // TODO: Add error handling
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://localhost:3000/api/products/plants/?filter=petFriendly"
-  );
-  const plants = await response.json();
+  const plants = await getPlants("petFriendly");
   return {
     props: {
       products: plants.map((product) => {

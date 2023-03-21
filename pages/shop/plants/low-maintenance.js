@@ -1,14 +1,12 @@
 import ShopLowMaintenance from "../../../components/Shop/ShopLowMaintenance";
+import { getPlants } from "../../../helpers/api-product-util";
 const LowMaintenance = (props) => {
   return <ShopLowMaintenance products={props.products} />;
 };
 
 // TODO: Add error handling
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://localhost:3000/api/products/plants/?filter=lowMaintenance"
-  );
-  const plants = await response.json();
+  const plants = await getPlants("lowMaintenance");
   return {
     props: {
       products: plants.map((product) => {

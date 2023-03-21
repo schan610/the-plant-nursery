@@ -6,6 +6,7 @@ const VisitUs = () => {
   // Set up states and refs for form submission
   const [isSending, setIsSending] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const contactName = useRef();
   const contactEmail = useRef();
   const contactSubject = useRef();
@@ -24,6 +25,7 @@ const VisitUs = () => {
     // Guard clause to prevent multiple calls when one is still running
     if (isSending) return;
     setIsSending(true);
+
     e.preventDefault();
 
     // Set up form data
@@ -34,7 +36,8 @@ const VisitUs = () => {
       text: contactMessage.current.value,
     };
 
-    const response = await fetch("http://localhost:3000/api/contact", {
+    // Validate
+    const response = await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -47,9 +50,16 @@ const VisitUs = () => {
     if (!response.ok) {
       setIsSending(false);
       setHasError(true);
-      console.log(`Could not send`);
+      if (response.status === 422) {
+        setErrorMsg("Please fill in the blanks.");
+        return;
+      }
+      setErrorMsg(
+        "There was an error trying to send you message. Please try again later."
+      );
       return;
     }
+
     setHasError(false);
     setIsSending(false);
     resetForm();
@@ -94,13 +104,7 @@ const VisitUs = () => {
                 {isSending ? "Sending" : "Send"}
               </button>
             </form>
-            {hasError && (
-              <ErrorMsg
-                message={
-                  "There was an error trying to send you message. Please try again later."
-                }
-              />
-            )}
+            {hasError && <ErrorMsg message={errorMsg} />}
           </div>
         </div>
       </div>

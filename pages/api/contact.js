@@ -8,6 +8,15 @@ async function handler(req, res) {
   // data = message and user data
   const data = req.body;
 
+  if (
+    data.name.trim() === "" ||
+    data.email.trim() === "" ||
+    data.subject.trim() === "" ||
+    data.text.trim() === ""
+  ) {
+    return res.status(422).send();
+  }
+
   // Create transport via SMTP transport with Sendgrid
   const transporter = nodemailer.createTransport({
     host: "smtp.sendgrid.net",

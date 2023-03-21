@@ -1,19 +1,16 @@
 import ShopPlantStands from "../../../components/Shop/ShopPlantStands";
-
+import { getAccessories } from "../../../helpers/api-product-util";
 const PlantStands = (props) => {
   return <ShopPlantStands products={props.products} />;
 };
 
 // TODO: Add error handling
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://localhost:3000/api/products/accessories?filter=plantStand"
-  );
-  const planters = await response.json();
+  const plantStands = await getAccessories("plantStand");
 
   return {
     props: {
-      products: planters.map((product) => {
+      products: plantStands.map((product) => {
         return {
           ...product,
           id: product._id.toString(),

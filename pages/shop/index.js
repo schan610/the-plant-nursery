@@ -1,5 +1,5 @@
 import ShopAll from "../../components/Shop/ShopAll";
-
+import { getAllProducts } from "../../helpers/api-product-util";
 const ProductsPage = (props) => {
   return <ShopAll products={props.products} />;
 };
@@ -7,9 +7,7 @@ const ProductsPage = (props) => {
 // TODO: Add error handling
 
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3000/api/products");
-  const allProducts = await response.json();
-
+  const allProducts = await getAllProducts();
   return {
     props: {
       products: allProducts.map((product) => {

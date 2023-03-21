@@ -1,14 +1,13 @@
 import ShopLowLight from "../../../components/Shop/ShopLowLight";
+import { getPlants } from "../../../helpers/api-product-util";
 const LowLight = (props) => {
   return <ShopLowLight products={props.products} />;
 };
 
 // TODO: Add error handling
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://localhost:3000/api/products/plants/?filter=lowLight"
-  );
-  const plants = await response.json();
+  const plants = await getPlants("lowLight");
+
   return {
     props: {
       products: plants.map((product) => {

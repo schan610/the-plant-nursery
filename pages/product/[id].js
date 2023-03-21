@@ -1,4 +1,5 @@
 import Product from "../../components/Product/Product";
+import { getProduct } from "../../helpers/api-product-util";
 const ProductDetailsPage = (props) => {
   return <Product product={props.product} />;
 };
@@ -6,7 +7,6 @@ const ProductDetailsPage = (props) => {
 export async function getStaticPaths() {
   const response = await fetch("http://localhost:3000/api/products");
   const allProducts = await response.json();
-
   const paths = allProducts.map((product) => {
     return product._id.toString();
   });
@@ -20,10 +20,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
   const productId = context.params.id;
-  const response = await fetch(
-    `http://localhost:3000/api/products/${productId}`
-  );
-  const product = await response.json();
+  const product = await getProduct(productId);
 
   return {
     props: {

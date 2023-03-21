@@ -4,7 +4,7 @@ import Features from "../components/Home/Features";
 import FeaturedItems from "../components/Home/FeaturedItems";
 import Business from "../components/Home/Business";
 import Testimonial from "../components/Home/Testimonial";
-
+import { getFeatured } from "../helpers/api-product-util";
 const HomePage = (props) => {
   return (
     <>
@@ -44,8 +44,7 @@ const HomePage = (props) => {
 };
 
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3000/api/products/featured");
-  const featuredProducts = await response.json();
+  const featuredProducts = await getFeatured();
   return {
     props: {
       featuredProducts: featuredProducts.map((product) => {
