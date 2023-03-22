@@ -36,29 +36,41 @@ const VisitUs = () => {
       text: contactMessage.current.value,
     };
 
-    // Validate
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    // Handle response if mail successfully send
-    if (!response.ok) {
+    if (
+      data.name.trim() === "" ||
+      data.email.trim() === "" ||
+      data.subject.trim() === "" ||
+      data.text.trim() === ""
+    ) {
       setIsSending(false);
       setHasError(true);
-      if (response.status === 422) {
-        setErrorMsg("Please fill in the blanks.");
-        return;
-      }
-      setErrorMsg(
-        "There was an error trying to send you message. Please try again later."
-      );
+      setErrorMsg("Please fill in the blanks.");
       return;
     }
+
+    // Validate - get backend server running
+    // const response = await fetch("/api/contact", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json, text/plain, */*",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+
+    // Handle response if mail successfully send
+    // if (!response.ok) {
+    //   setIsSending(false);
+    //   setHasError(true);
+    //   if (response.status === 422) {
+    //     setErrorMsg("Please fill in the blanks.");
+    //     return;
+    //   }
+    //   setErrorMsg(
+    //     "There was an error trying to send you message. Please try again later."
+    //   );
+    //   return;
+    // }
 
     setHasError(false);
     setIsSending(false);

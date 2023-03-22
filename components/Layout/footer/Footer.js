@@ -6,7 +6,7 @@ import {
   TiSocialYoutube,
 } from "react-icons/ti";
 
-import { FaLeaf } from "react-icons/fa";
+import { AiFillGithub } from "react-icons/ai";
 
 const Footer = () => {
   const onSubmitNewsHandler = (e) => {
@@ -47,6 +47,12 @@ const Footer = () => {
               <button className="btn btn--secondary">Submit</button>
             </form>
             <div className="footer__social">
+              <a
+                href="https://github.com/schan610/the-plant-nursery.git"
+                target="blank"
+              >
+                <AiFillGithub />
+              </a>
               <TiSocialInstagram />
               <TiSocialTwitter />
               <TiSocialFacebook />
@@ -62,7 +68,6 @@ const Footer = () => {
           <span>
             Product Images from
             <a href="feey.ch" target="blank">
-              {" "}
               feey.ch
             </a>
           </span>

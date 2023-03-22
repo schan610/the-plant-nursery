@@ -1,12 +1,11 @@
 import Product from "../../components/Product/Product";
-import { getProduct } from "../../helpers/api-product-util";
+import { getProduct, getAllProducts } from "../../helpers/api-product-util";
 const ProductDetailsPage = (props) => {
   return <Product product={props.product} />;
 };
 
 export async function getStaticPaths() {
-  const response = await fetch("http://localhost:3000/api/products");
-  const allProducts = await response.json();
+  const allProducts = await getAllProducts();
   const paths = allProducts.map((product) => {
     return product._id.toString();
   });
