@@ -9,6 +9,10 @@ const HomePage = (props) => {
   return (
     <>
       <Head>
+        <meta
+          name="google-site-verification"
+          content="JXaEwYB3vuwTw4xOifditGq-P15SEh9MBsA_fxa2OZU"
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
